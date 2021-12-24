@@ -1,0 +1,146 @@
+[INFO ] 2021-12-21 14:45:44.904 [restartedMain][StartupInfoLogger.java] BoardApplication - Starting BoardApplication using Java 1.8.0_282 on DESKTOP-MOV455O with PID 28796 (D:\IntelliJ_workspaces\board\out\production\classes started by 82102 in D:\IntelliJ_workspaces\board)
+[INFO ] 2021-12-21 14:45:44.914 [restartedMain][SpringApplication.java] BoardApplication - No active profile set, falling back to default profiles: default
+[INFO ] 2021-12-21 14:45:45.181 [restartedMain][DeferredLog.java] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2021-12-21 14:45:45.182 [restartedMain][DeferredLog.java] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[WARN ] 2021-12-21 14:45:45.918 [restartedMain][Logger.java] ClassPathMapperScanner - No MyBatis mapper was found in '[com.vdc.board]' package. Please check your configuration.
+[INFO ] 2021-12-21 14:45:46.354 [restartedMain][TomcatWebServer.java] TomcatWebServer - Tomcat initialized with port(s): 8090 (http)
+[INFO ] 2021-12-21 14:45:46.362 [restartedMain][DirectJDKLog.java] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8090"]
+[INFO ] 2021-12-21 14:45:46.363 [restartedMain][DirectJDKLog.java] StandardService - Starting service [Tomcat]
+[INFO ] 2021-12-21 14:45:46.363 [restartedMain][DirectJDKLog.java] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.55]
+[INFO ] 2021-12-21 14:45:46.483 [restartedMain][DirectJDKLog.java] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2021-12-21 14:45:46.483 [restartedMain][ServletWebServerApplicationContext.java] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1297 ms
+[INFO ] 2021-12-21 14:45:46.564 [restartedMain][HikariDataSource.java] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2021-12-21 14:45:47.048 [restartedMain][Slf4jSpyLogDelegator.java] connection - 1. Connection opened
+[INFO ] 2021-12-21 14:45:47.049 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.050 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.getNetworkTimeout() returned 0
+[INFO ] 2021-12-21 14:45:47.051 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.051 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.056 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.isValid(1) returned true
+[INFO ] 2021-12-21 14:45:47.060 [restartedMain][Slf4jSpyLogDelegator.java] audit - 1. Connection.getTransactionIsolation() returned 4
+[INFO ] 2021-12-21 14:45:47.064 [restartedMain][HikariDataSource.java] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2021-12-21 14:45:47.222 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 2. Connection opened
+[INFO ] 2021-12-21 14:45:47.223 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 2. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.223 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 2. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.223 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 2. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.274 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 3. Connection opened
+[INFO ] 2021-12-21 14:45:47.274 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 3. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.275 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 3. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.275 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 3. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.358 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 4. Connection opened
+[INFO ] 2021-12-21 14:45:47.359 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 4. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.359 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 4. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.359 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 4. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.407 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 5. Connection opened
+[INFO ] 2021-12-21 14:45:47.407 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 5. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.408 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 5. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.408 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 5. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.451 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 6. Connection opened
+[INFO ] 2021-12-21 14:45:47.451 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 6. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.451 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 6. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.452 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 6. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.494 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 7. Connection opened
+[INFO ] 2021-12-21 14:45:47.495 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 7. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.495 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 7. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.495 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 7. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.510 [restartedMain][WelcomePageHandlerMapping.java] WelcomePageHandlerMapping - Adding welcome page template: index
+[INFO ] 2021-12-21 14:45:47.545 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 8. Connection opened
+[INFO ] 2021-12-21 14:45:47.546 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 8. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.546 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 8. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.546 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 8. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.607 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 9. Connection opened
+[INFO ] 2021-12-21 14:45:47.607 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 9. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.608 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 9. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.608 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 9. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.722 [restartedMain][OptionalLiveReloadServer.java] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2021-12-21 14:45:47.746 [restartedMain][DirectJDKLog.java] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8090"]
+[INFO ] 2021-12-21 14:45:47.750 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 10. Connection opened
+[INFO ] 2021-12-21 14:45:47.750 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 10. Connection.new Connection returned 
+[INFO ] 2021-12-21 14:45:47.751 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 10. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 14:45:47.751 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 10. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 14:45:47.766 [restartedMain][TomcatWebServer.java] TomcatWebServer - Tomcat started on port(s): 8090 (http) with context path ''
+[INFO ] 2021-12-21 14:45:47.778 [restartedMain][StartupInfoLogger.java] BoardApplication - Started BoardApplication in 3.48 seconds (JVM running for 6.905)
+[INFO ] 2021-12-21 14:46:13.812 [http-nio-8090-exec-1][DirectJDKLog.java] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2021-12-21 14:46:13.812 [http-nio-8090-exec-1][FrameworkServlet.java] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2021-12-21 14:46:13.814 [http-nio-8090-exec-1][FrameworkServlet.java] DispatcherServlet - Completed initialization in 1 ms
+[INFO ] 2021-12-21 15:15:05.176 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 10. Connection closed
+[INFO ] 2021-12-21 15:15:05.177 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 10. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:05.367 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 11. Connection opened
+[INFO ] 2021-12-21 15:15:05.367 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 11. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:05.367 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 11. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:05.367 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 11. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:05.895 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 7. Connection closed
+[INFO ] 2021-12-21 15:15:05.896 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 7. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:05.956 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 12. Connection opened
+[INFO ] 2021-12-21 15:15:05.957 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 12. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:05.958 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 12. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:05.958 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 12. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:14.043 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 6. Connection closed
+[INFO ] 2021-12-21 15:15:14.044 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 6. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:14.112 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 13. Connection opened
+[INFO ] 2021-12-21 15:15:14.113 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 13. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:14.114 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 13. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:14.114 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 13. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:15.446 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 3. Connection closed
+[INFO ] 2021-12-21 15:15:15.447 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 3. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:15.551 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 14. Connection opened
+[INFO ] 2021-12-21 15:15:15.551 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 14. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:15.552 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 14. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:15.553 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 14. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:29.500 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 4. Connection closed
+[INFO ] 2021-12-21 15:15:29.501 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 4. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:29.803 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 15. Connection opened
+[INFO ] 2021-12-21 15:15:29.803 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 15. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:29.804 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 15. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:29.804 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 15. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:30.140 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 2. Connection closed
+[INFO ] 2021-12-21 15:15:30.140 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 2. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:30.488 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 16. Connection opened
+[INFO ] 2021-12-21 15:15:30.489 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 16. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:30.490 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 16. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:30.490 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 16. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:39.738 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 1. Connection closed
+[INFO ] 2021-12-21 15:15:39.738 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 1. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:41.185 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 17. Connection opened
+[INFO ] 2021-12-21 15:15:41.185 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 17. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:41.185 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 17. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:41.186 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 17. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:41.889 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 5. Connection closed
+[INFO ] 2021-12-21 15:15:41.890 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 5. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:42.126 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 18. Connection opened
+[INFO ] 2021-12-21 15:15:42.126 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 18. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:42.127 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 18. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:42.127 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 18. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:43.585 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 8. Connection closed
+[INFO ] 2021-12-21 15:15:43.585 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 8. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:43.928 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 19. Connection opened
+[INFO ] 2021-12-21 15:15:43.929 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 19. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:43.929 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 19. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:43.929 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 19. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:15:44.924 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 9. Connection closed
+[INFO ] 2021-12-21 15:15:44.925 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 9. Connection.close() returned 
+[INFO ] 2021-12-21 15:15:44.989 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] connection - 20. Connection opened
+[INFO ] 2021-12-21 15:15:44.990 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 20. Connection.new Connection returned 
+[INFO ] 2021-12-21 15:15:44.990 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 20. Connection.isReadOnly() returned false
+[INFO ] 2021-12-21 15:15:44.990 [HikariPool-1 connection adder][Slf4jSpyLogDelegator.java] audit - 20. Connection.getAutoCommit() returned true
+[INFO ] 2021-12-21 15:24:28.623 [SpringApplicationShutdownHook][HikariDataSource.java] HikariDataSource - HikariPool-1 - Shutdown initiated...
+[INFO ] 2021-12-21 15:24:28.625 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 11. Connection closed
+[INFO ] 2021-12-21 15:24:28.625 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 11. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.626 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 12. Connection closed
+[INFO ] 2021-12-21 15:24:28.626 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 12. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.627 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 13. Connection closed
+[INFO ] 2021-12-21 15:24:28.627 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 13. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.629 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 14. Connection closed
+[INFO ] 2021-12-21 15:24:28.629 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 14. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.630 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 15. Connection closed
+[INFO ] 2021-12-21 15:24:28.630 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 15. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.631 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 16. Connection closed
+[INFO ] 2021-12-21 15:24:28.632 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 16. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.633 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 17. Connection closed
+[INFO ] 2021-12-21 15:24:28.633 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 17. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.634 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 18. Connection closed
+[INFO ] 2021-12-21 15:24:28.634 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 18. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.635 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 19. Connection closed
+[INFO ] 2021-12-21 15:24:28.635 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 19. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.635 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] connection - 20. Connection closed
+[INFO ] 2021-12-21 15:24:28.636 [HikariPool-1 connection closer][Slf4jSpyLogDelegator.java] audit - 20. Connection.close() returned 
+[INFO ] 2021-12-21 15:24:28.636 [SpringApplicationShutdownHook][HikariDataSource.java] HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,0 +1,46 @@
+header {
+    height: 12vh;
+    font-size: 5rem;
+}
+section {
+    height: 85vh;
+}
+.subject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    font-size: 3rem;
+}
+.col_title {
+    font-size: 2.8rem;
+}
+.value {
+    display: flex;
+    padding: 0px;
+    height: 4.5rem;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+.under_title #last_words {
+    float: right;
+}
+.name {
+    text-align: end;
+    font-size: 3rem;
+}
+.count {
+    text-align: center;
+    font-size: 3rem;
+}
+#dot {
+    color: red;
+}
+.under_title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #4682B4;
+    padding-left: 10px;
+    padding-right: 10px;
+}

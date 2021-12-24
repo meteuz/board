@@ -1,0 +1,269 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- meta tag start -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <!-- meta tag end -->
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- 외부 css start -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
+    <!-- 외부 css end -->
+
+    <!-- 내부 css -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/team-call.css}">
+    
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title">
+        콜 상태 현황(고객지원센터 2팀)
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section>
+        <div class="contents container-fluid">
+            <div class="row">
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w2">인 입</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="enter">277</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w3">대 기 호</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="wait_call">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w2">응 대</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="response">233</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w6">평균대기시간</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="average_wait_time">0:01:34</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w3">응 대 율</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="response_per">84.1%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 bundle">
+                    <div class="row">
+                        <div class="col-xs-5">
+                            <div class="subject w5">서비스레벨</div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="value" id="service">34.3%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="under_box">
+                <div class="under_title">
+                    <span id="dot">●</span> 개인별 실적 [응대호기준]<span id="last_words">기준</span>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name1">고구정</div>
+                            <div class="col-xs-5 count" id="count1">0</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name2">이지연</div>
+                            <div class="col-xs-5 count" id="count2">12</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name3">김미현A</div>
+                            <div class="col-xs-5 count" id="count3">54</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name4">이서하</div>
+                            <div class="col-xs-5 count" id="count4">38</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name5">권태정</div>
+                            <div class="col-xs-5 count" id="count5">30</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name6">이수언</div>
+                            <div class="col-xs-5 count" id="count6">49</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name7">이정현</div>
+                            <div class="col-xs-5 count" id="count7">33</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name8">이은옥</div>
+                            <div class="col-xs-5 count" id="count8">25</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name9">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count9">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name10">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count10">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name11">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count11">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name12">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count12">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name13">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count13">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name14">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count14">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name15">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count15">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name16">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count16">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name17">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count17">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name18">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count18">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name19">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count19">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-7 name" id="name20">&nbsp;</div>
+                            <div class="col-xs-5 count" id="count20">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <!-- 내부 script start -->
+    <script>
+
+    </script>
+    <!-- 내부 script end -->
+</body>
+
+</html>

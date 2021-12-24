@@ -1,0 +1,232 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- meta tag start -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <!-- meta tag end -->
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- 외부 css start -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
+    <!-- 외부 css end -->
+
+    <!-- 내부 css -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/job-call.css}">
+    
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title">
+        업무별 콜 응대 현황
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section>
+        <div class="contents container-fluid">
+            <div class="row r1">
+                <div class="col-xs-2">
+                    <div class="subject w2">구 분</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject col_title">총인입</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject col_title">응 대</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject col_title">포 기</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject col_title">응대율</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject col_title">서비스레벨</div>
+                </div>
+            </div>
+
+<!--            <div class="row r2" th:with="total=${jobCallInfo.get('total')}">-->
+            <div class="row r2" th:with="total=${jobCallInfoList.get(0)}">
+                <div class="col-xs-2">
+                    <div class="subject w2 all">전 체</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="all_total" th:text="${total.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="all_response" th:text="${total.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="all_give_up" th:text="${total.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="all_response_rate" th:text="${total.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="all_service_level" th:text="${total.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r3" th:with="work=${jobCallInfo.get('work')}">-->
+            <div class="row r3" th:with="work=${jobCallInfoList.get(1)}">
+                <div class="col-xs-2">
+                    <div class="subject w3">워크넷</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="work_total" th:text="${work.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="work_response" th:text="${work.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="work_give_up" th:text="${work.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="work_response_rate" th:text="${work.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="work_service_level" th:text="${work.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r4" th:with="foreigner=${jobCallInfo.get('foreigner')}">-->
+            <div class="row r4" th:with="foreigner=${jobCallInfoList.get(2)}">
+                <div class="col-xs-2">
+                    <div class="subject w5">외국인고용</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="foreigner_total" th:text="${foreigner.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="foreigner_response" th:text="${foreigner.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="foreigner_give_up" th:text="${foreigner.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="foreigner_response_rate" th:text="${foreigner.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="foreigner_service_level" th:text="${foreigner.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r5" th:with="insurance=${jobCallInfo.get('insurance')}">-->
+            <div class="row r5" th:with="insurance=${jobCallInfoList.get(3)}">
+                <div class="col-xs-2">
+                    <div class="subject w4">고용보험</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="insurance_total" th:text="${insurance.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="insurance_response" th:text="${insurance.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="insurance_give_up" th:text="${insurance.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="insurance_response_rate" th:text="${insurance.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="insurance_service_level" th:text="${insurance.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r6" th:with="skill=${jobCallInfo.get('skill')}">-->
+            <div class="row r6" th:with="skill=${jobCallInfoList.get(4)}">
+                <div class="col-xs-2">
+                    <div class="subject w4">능력개발</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="skill_total" th:text="${skill.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="skill_response" th:text="${skill.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="skill_give_up" th:text="${skill.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="skill_response_rate" th:text="${skill.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="skill_service_level" th:text="${skill.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r7" th:with="counselor=${jobCallInfo.get('counselor')}">-->
+            <div class="row r7" th:with="counselor=${jobCallInfoList.get(5)}">
+                <div class="col-xs-2">
+                    <div class="subject w5">상담원연결</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="counselor_total" th:text="${counselor.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="counselor_response" th:text="${counselor.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="counselor_give_up" th:text="${counselor.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="counselor_response_rate" th:text="${counselor.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="counselor_service_level" th:text="${counselor.get('service_level')}"></div>
+                </div>
+            </div>
+
+<!--            <div class="row r8" th:with="etc=${jobCallInfo.get('etc')}">-->
+            <div class="row r8" th:with="etc=${jobCallInfoList.get(6)}">
+                <div class="col-xs-2">
+                    <div class="subject w2">기 타</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="etc_total" th:text="${etc.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="etc_response" th:text="${etc.get('response')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="etc_give_up" th:text="${etc.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="etc_response_rate" th:text="${etc.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="etc_service_level" th:text="${etc.get('service_level')}"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <!-- 내부 script start -->
+    <script>
+
+    </script>
+    <!-- 내부 script end -->
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+server:
+  port: 8090
+
+# database 설정
+spring:
+  datasource:
+    hikari:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ohapp?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      username: vdc
+      password: vdc7200#
+      #connection-test-query: SELECT NOW()
+---
+# devtools
+spring:
+  devtools:
+    livereload:
+      enabled: true
+  freemarker:
+    cache: false
+---
+#thymeleaf 사용
+spring:
+  thymeleaf:
+    prefix : classpath:templates/
+    suffix : .html
+    cache : false
+---
+#로그 레벨
+logging:
+  config:
+    level: INFO
+    path: /logs/ #/logs
+    filename: board
+    errfilename: error_board
+
+---
+#MultipartUpload
+spring:
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+
+---
+#mybatis
+mybatis:
+  configuration:
+    jdbc-type-for-null: varchar
+
+---
+#session timeout setting
+#server:
+#  servlet:
+#    session:
+#      timeout: 30s

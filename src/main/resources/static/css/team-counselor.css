@@ -1,0 +1,101 @@
+header {
+    height: 15vh;
+    font-size: 5rem;
+}
+section {
+    height: 85vh;
+}
+.subject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    font-size: 3rem;
+}
+
+.value {
+    display: flex;
+    padding: 0px;
+    height: 4.5rem;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.w5 {
+    text-indent: -0.7rem;
+    letter-spacing: -0.4rem;
+}
+.w6 {
+    text-indent: -0.5rem;
+    letter-spacing: -0.7rem;
+}
+
+.img {
+    text-align: center;
+    font-size: 1.8rem;
+}
+.icon_blue {
+    border-radius: 5px;
+    background: linear-gradient(to top left, blue, white);
+}
+.icon_yellow {
+    border-radius: 5px;
+    background: radial-gradient(#ffdf9c, #ffcd65);
+}
+.eye {
+    position: relative;
+}
+/*.circle {*/
+/*    position: absolute;*/
+/*    font-size: 1.5em;*/
+/*    font-weight: bold;*/
+/*    color: red;*/
+/*    z-index: 1;*/
+/*    top: -50%;*/
+/*    left: -50%;*/
+/*}*/
+.eye:after {
+    content: "\f057";
+    font-size: 1.45em;
+    font-weight: bold;
+    color: red;
+    z-index: 1;
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    margin-left: 0.27em;
+    margin-top: 0.2em;
+}
+.name {
+    text-align: end;
+    font-size: 2.2rem;
+}
+.count {
+    text-align: center;
+    font-size: 2.2rem;
+    letter-spacing: -0.1rem;
+}
+.col-xs-2 {
+    padding: 3px;
+}
+
+.sub1 {
+    background-color: mediumvioletred;
+}
+
+.sub2 {
+    background-color: blueviolet;
+}
+
+.sub3 {
+    background-color: blue;
+}
+
+.sub4 {
+    background-color: darkgreen;
+}
+
+.sub5 {
+    background-color: coral;
+}

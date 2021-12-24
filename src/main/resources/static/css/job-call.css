@@ -1,0 +1,44 @@
+
+header {
+    height: 15vh;
+    font-size: 60px;
+}
+section {
+    height: 80vh;
+}
+.subject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 4.5rem;
+    font-size: 3rem;
+}
+.col_title {
+    font-size: 2.8rem;
+}
+.value {
+    display: flex;
+    padding: 0px;
+    height: 4.5rem;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.all {
+    background-color: yellow;
+}
+
+.w2 {
+    word-spacing: 4.5rem;
+}
+.w3 {
+    text-indent: 1rem;
+    letter-spacing: 1.2rem;
+}
+.w4 {
+    letter-spacing: 0.1rem;
+}
+.w5 {
+    font-stretch: ultra-condensed;
+}

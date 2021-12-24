@@ -1,0 +1,309 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- meta tag start -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <!-- meta tag end -->
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- 외부 css start -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/vendors.bundle.css}">
+    <!-- 외부 css end -->
+
+    <!-- 내부 css -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/team-counselor.css}">
+
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title">
+        상담원 상태 현황(고객지원센터2팀)
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section>
+        <div class="contents container-fluid">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="subject w2">인 입</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w2">응 대</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w3">응 대 율</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w3">대 기 호</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w6">평균대기시간</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w5">서비스레벨</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="value" id="enter">277</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="response">234</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="response_per">84.5%</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="wait_call">0</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="average_wait_time">0:01:34</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="service">34.3%</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-2">
+                    <div class="subject w3 sub1">로 그 인</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w2 sub2">대 기</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w3 sub3">통 화 중</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w3 sub4">후 처 리</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="subject w2 sub5">이 석</div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-2">
+                    <div class="value" id="login">4</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="wait">4</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="calling">0</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="after_handle">0</div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="value" id="other">0</div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="under_box">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img1">
+                                <div class="icon_blue">
+                                    <i class="fal fa-phone-rotary text-white"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 name name1">고구정</div>
+                            <div class="col-xs-5 count time1">0:00:00</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img2">
+                                <div class="icon_yellow">
+<!--                                    <i class="fal fa-circle text-danger circle"></i>-->
+                                    <i class="fal fa-eye text-white eye"></i>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 name name2">이지연</div>
+                            <div class="col-xs-5 count time2">00:00:49</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img3">1</div>
+                            <div class="col-xs-5 name name3">김미현A</div>
+                            <div class="col-xs-5 count time3">0:00:00</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img4">1</div>
+                            <div class="col-xs-5 name name4">이서하</div>
+                            <div class="col-xs-5 count time4">0:00:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img5">1</div>
+                            <div class="col-xs-5 name name5">권태정</div>
+                            <div class="col-xs-5 count time5">00:02:47</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img6">1</div>
+                            <div class="col-xs-5 name name6">이수언</div>
+                            <div class="col-xs-5 count time6">0:00:00</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img7">1</div>
+                            <div class="col-xs-5 name name7">이정현</div>
+                            <div class="col-xs-5 count time7">00:01:09</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img8">1</div>
+                            <div class="col-xs-5 name name8">이은옥</div>
+                            <div class="col-xs-5 count time8">00:04:59</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img9">&nbsp;</div>
+                            <div class="col-xs-5 name name9">&nbsp;</div>
+                            <div class="col-xs-5 count time9">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img10">&nbsp;</div>
+                            <div class="col-xs-5 name name10">&nbsp;</div>
+                            <div class="col-xs-5 count time10">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img11">&nbsp;</div>
+                            <div class="col-xs-5 name name11">&nbsp;</div>
+                            <div class="col-xs-5 count time11">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img12">&nbsp;</div>
+                            <div class="col-xs-5 name name12">&nbsp;</div>
+                            <div class="col-xs-5 count time12">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img13">&nbsp;</div>
+                            <div class="col-xs-5 name name13">&nbsp;</div>
+                            <div class="col-xs-5 count time13">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img14">&nbsp;</div>
+                            <div class="col-xs-5 name name14">&nbsp;</div>
+                            <div class="col-xs-5 count time14">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img15">&nbsp;</div>
+                            <div class="col-xs-5 name name15">&nbsp;</div>
+                            <div class="col-xs-5 count time15">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img16">&nbsp;</div>
+                            <div class="col-xs-5 name name16">&nbsp;</div>
+                            <div class="col-xs-5 count time16">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img17">&nbsp;</div>
+                            <div class="col-xs-5 name name17">&nbsp;</div>
+                            <div class="col-xs-5 count time17">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img18">&nbsp;</div>
+                            <div class="col-xs-5 name name18">&nbsp;</div>
+                            <div class="col-xs-5 count time18">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img19">&nbsp;</div>
+                            <div class="col-xs-5 name name19">&nbsp;</div>
+                            <div class="col-xs-5 count time19">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="row value">
+                            <div class="col-xs-2 img img20">&nbsp;</div>
+                            <div class="col-xs-5 name name20">&nbsp;</div>
+                            <div class="col-xs-5 count time20">&nbsp;</div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <!-- 내부 script start -->
+    <script>
+
+    </script>
+    <!-- 내부 script end -->
+</body>
+
+</html>

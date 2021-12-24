@@ -1,0 +1,77 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- meta tag start -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <!-- meta tag end -->
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- 외부 css start -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
+    <!-- 외부 css end -->
+
+    <!-- 내부 css -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/current-date.css}">
+
+    <script>
+        //        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
+        //        const currentDate = new Date();
+        //        
+        //        let yearStr = currentDate.getFullYear() + '년';
+        //        let monthStr = (currentDate.getMonth() + 1) + '월';
+        //        let dateStr = currentDate.getDate() + '일';
+        //        let dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';
+        //        let currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dateStr
+        //        
+        //        let timeStr = currentDate.getHours() + ':' + currentDate.getMinutes();
+
+    </script>
+</head>
+
+<body>
+    <!-- header start -->
+    <header>
+        <!--        <h1 id="title"></h1>-->
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section>
+        <div class="contents first_page container-fluid">
+            <div class="row r1">
+                <div class="col-xs-12 current_date" th:text="${currentDate}">2021년 12월 01일 [수]</div>
+            </div>
+
+            <div class="row r2">
+                <div class="col-xs-12 current_time" th:text="${currentTime}">오후 01:00</div>
+            </div>
+        </div>
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer>
+        <img src="img/ci_type_jpg02.jpg" height="50px">
+    </footer>
+    <!-- footer end -->
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <!-- 내부 script start -->
+    <script>
+
+    </script>
+    <!-- 내부 script end -->
+</body>
+
+</html>

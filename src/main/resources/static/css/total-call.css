@@ -1,0 +1,26 @@
+section {
+    height: 80vh;
+}
+
+.subject {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem;
+    font-size: 4rem;
+}
+
+.value {
+    display: flex;
+    padding: 0px;
+    height: 7rem;
+    font-size: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.r1,
+.r2,
+.r3 {
+    margin-bottom: 15px;
+}

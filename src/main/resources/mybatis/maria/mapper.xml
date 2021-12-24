@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="extn">
+    <select id="getExtnData" parameterType="hashmap" resultType="hashmap">
+        CALL USP_EXTN_S()
+    </select>
+
+    <select id="getRoomData" parameterType="hashmap" resultType="hashmap">
+        CALL USP_ROOM_S()
+    </select>
+
+    <select id="getRoomExtnData" parameterType="hashmap" resultType="hashmap">
+        CALL USP_ROOM_EXTN_S(#{Room_Sys_No, jdbcType=INTEGER})
+    </select>
+
+    <insert id="UploadSample" parameterType="hashmap">
+        select #{ORIGINAL_FILE_NAME}, #{FILE_NAME}, #{FILE_PATH}, #{_EMP_NO}
+    </insert>
+
+    <select id="getExtnLevel" parameterType="hashmap" resultType="hashmap">
+        CALL USP_EXTN_LEVEL_S()
+    </select>
+
+    <select id="getExtnGroupNType" parameterType="hashmap" resultType="hashmap">
+        CALL USP_EXTN_GROUP_N_TYPE_S()
+    </select>
+
+    <select id="getExtnGroup" parameterType="hashmap" resultType="hashmap">
+        CALL USP_EXTN_GROUP_S()
+    </select>
+
+    <insert id="saveExtn" parameterType="hashmap">
+        CALL USP_EXTN_I(#{Extn_No}, #{Extn_Level, jdbcType=NUMERIC}, #{Extn_Group, jdbcType=NUMERIC}, #{Extn_Type, jdbcType=NUMERIC}, #{Dnd_Stat, jdbcType=NUMERIC}, #{Sys_Svc_Code, jdbcType=NUMERIC})
+    </insert>
+
+    <update id="updateExtn" parameterType="hashmap">
+        CALL USP_EXTN_U(#{Seq}, #{Extn_No}, #{Extn_Level, jdbcType=NUMERIC}, #{Extn_Group, jdbcType=NUMERIC}, #{Extn_Type, jdbcType=NUMERIC}, #{Dnd_Stat, jdbcType=NUMERIC}, #{Sys_Svc_Code, jdbcType=NUMERIC})
+    </update>
+
+    <update id="deleteExtn" parameterType="hashmap">
+        CALL USP_EXTN_D(#{Seq})
+    </update>
+
+    <insert id="saveExtnList" parameterType="java.util.List">
+        insert into extn (Extn_No, Extn_Level, Extn_Group, Extn_Type, Dnd_Stat) values
+        <foreach collection="list" item="item" separator=" , ">
+            (#{item.Extn_No}, #{item.Extn_Level}, #{item.Extn_Group}, #{item.Extn_Type}, #{item.Dnd_Stat})
+        </foreach>
+    </insert>
+
+</mapper>

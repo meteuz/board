@@ -1,0 +1,115 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- meta tag start -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <!-- meta tag end -->
+
+    <!-- title -->
+    <title>Home</title>
+
+    <!-- 외부 css start -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
+    <!-- 외부 css end -->
+
+    <!-- 내부 css -->
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+    <link rel="stylesheet" media="screen, print" th:href="@{/css/total-call.css}">
+    
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title">
+        전체 콜 운영 현황
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section>
+        <div class="contents container-fluid">
+            <div class="row r1">
+                <div class="col-xs-3">
+                    <div class="subject w3">총인입</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="total" th:text="${totalCallInfo.get('total_input')}"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="subject w3">로그인</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="login" th:text="${totalCallInfo.get('login')}"></div>
+                </div>
+            </div>
+
+            <div class="row r2">
+                <div class="col-xs-3">
+                    <div class="subject w2">응 대</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="response" th:text="${totalCallInfo.get('response')}"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="subject w3">대기자</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="waiter" th:text="${totalCallInfo.get('waiter')}"></div>
+                </div>
+            </div>
+
+            <div class="row r3">
+                <div class="col-xs-3">
+                    <div class="subject w2">포 기</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="give_up" th:text="${totalCallInfo.get('give_up')}"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="subject w3">대기호</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="wait_call" th:text="${totalCallInfo.get('wait_call')}"></div>
+                </div>
+            </div>
+
+            <div class="row r4">
+                <div class="col-xs-3">
+                    <div class="subject w3">응대율</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="response_rate" th:text="${totalCallInfo.get('response_rate')}"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="subject w6">평균대기시간</div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="value" id="average_wait_time" th:text="${totalCallInfo.get('average_wait_time')}"></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <!-- 내부 script start -->
+    <script>
+
+    </script>
+    <!-- 내부 script end -->
+</body>
+
+</html>

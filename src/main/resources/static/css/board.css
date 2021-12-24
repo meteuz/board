@@ -1,0 +1,182 @@
+/* body */
+html,
+body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+/* header */
+header {
+    display: flex;
+    height: 20vh;
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../img/winter.jpg);
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    
+    text-align: center;
+    font-size: 70px;
+    color: white;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+
+
+
+/* section */
+section {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    /*background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);*/
+}
+
+section::after {
+    height: 100%;
+    width: 100%;
+    content: "";
+    background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.contents {
+    width: 100%;
+}
+.subject {
+    text-align: center;
+    background-color: #ffcc00;
+    font-size: 45px;
+    color: white;
+    text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+    border-style: groove;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+.value {
+    text-align: center;
+    background-color: white;
+/*    font-size: 45px;*/
+    border-style: solid;
+    border-color: #d3d3d3;
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+
+
+/* row */
+.row {
+    margin: 0;
+    padding: 0;
+}
+.row > * {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.r1,
+.r2,
+.r3,
+.r4,
+.r5,
+.r6,
+.r7 {
+    margin-bottom: 7px;
+}
+
+
+
+/* col */
+.col-xs-2 > .subject,
+.col-xs-2 > .value,
+.col-xs-5 > .subject,
+.col-xs-7 > .value {
+/*    font-size: 28px;*/
+    padding: 0px;
+}
+.col-xs-3 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.col-xs-2 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.col-xs-5,
+.col-xs-7 {
+    padding: 5px;
+}
+
+
+
+/* words */
+.w2 {
+/*    word-spacing: 9rem;*/
+    word-spacing: 3.5rem;
+}
+.w3 {
+    word-spacing: 1.5rem;
+}
+.w4 {
+/*    letter-spacing: 0.5rem;*/
+    letter-spacing: 0.3rem;
+}
+.w5 {
+    text-indent: -1rem;
+    letter-spacing: -0.6rem;
+}
+.w6 {
+    text-indent: -1rem;
+/*    letter-spacing: -0.9rem;*/
+    letter-spacing: -0.9rem;
+/*    font-size: 40px;*/
+}
+
+
+
+
+/* background-color */
+.row.value {
+    background-color: #87CEFA;
+}
+
+
+
+/* font, align */
+.under_box {
+    border-style: solid;
+    border-color: #d3d3d3;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+
+    background-color: white;
+}
+
+

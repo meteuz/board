@@ -33,40 +33,42 @@ section {
 
 .img {
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
+}
+.icon {
+    font-weight: bold;
 }
 .icon_blue {
-    border-radius: 5px;
-    background: linear-gradient(to top left, blue, white);
+    /*border: 1px solid white;*/
+    /*border-radius: 5px;*/
+    /*background: linear-gradient(to top left, blue, white);*/
+    color: blue;
 }
-.icon_yellow {
-    border-radius: 5px;
-    background: radial-gradient(#ffdf9c, #ffcd65);
+.icon_meal {
+    color: coral;
 }
-.eye {
-    position: relative;
+.icon_rest {
+    color: green;
 }
-/*.circle {*/
-/*    position: absolute;*/
-/*    font-size: 1.5em;*/
-/*    font-weight: bold;*/
-/*    color: red;*/
-/*    z-index: 1;*/
-/*    top: -50%;*/
-/*    left: -50%;*/
-/*}*/
-.eye:after {
-    content: "\f057";
-    font-size: 1.45em;
-    font-weight: bold;
-    color: red;
-    z-index: 1;
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    margin-left: 0.27em;
-    margin-top: 0.2em;
+.icon_education {
+    color: blueviolet;
 }
+.icon_init {
+    color: brown;
+}
+.icon_work {
+    color: gray;
+}
+.icon_calling {
+    color: orange;
+}
+.icon_handling {
+    color: deeppink;
+}
+.icon_off {
+    color: darkblue;
+}
+
 .name {
     text-align: end;
     font-size: 2.2rem;

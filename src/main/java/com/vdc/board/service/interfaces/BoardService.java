@@ -8,6 +8,16 @@ public interface BoardService {
     Map<String, Object> getTotalCallInfo();
 
     Map<String, Map<String, Object>> getJobCallInfo();
-
     List<Map<String, Object>> getJobCallInfoList();
+
+    Map<String, Object> getTeamCallInfo();
+    List<Map<String, Object>> getIndividualPerformance();
+
+    Map<String, Object> getTeamCounselorInfo();
+    Map<String, Object> getTeamCounselorInfo2();
+    List<Map<String, Object>> getIndividualCounselorState();
+
+
+
+    Map<String, Object> getTestData(Map<String, Object> map);
 }

@@ -19,8 +19,6 @@ section {
     justify-content: center;
 }
 
-.r1,
-.r2,
-.r3 {
+.row {
     margin-bottom: 15px;
 }

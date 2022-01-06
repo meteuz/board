@@ -1,5 +1,6 @@
 package com.vdc.board.service.classes;
 
+import com.vdc.board.repository.interfaces.BoardMapper;
 import com.vdc.board.repository.interfaces.BoardRepository;
 import com.vdc.board.service.interfaces.BoardService;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
+    private final BoardMapper boardMapper;
 
     @Override
     public Map<String, Object> getTotalCallInfo() {
@@ -27,5 +29,35 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<Map<String, Object>> getJobCallInfoList() {
         return boardRepository.getJobCallInfoList();
+    }
+
+    @Override
+    public Map<String, Object> getTeamCallInfo() {
+        return boardRepository.getTeamCallInfo();
+    }
+
+    @Override
+    public List<Map<String, Object>> getIndividualPerformance() {
+        return boardRepository.getIndividualPerformance();
+    }
+
+    @Override
+    public Map<String, Object> getTeamCounselorInfo() {
+        return boardRepository.getTeamCounselorInfo();
+    }
+
+    @Override
+    public Map<String, Object> getTeamCounselorInfo2() {
+        return boardRepository.getTeamCounselorInfo2();
+    }
+
+    @Override
+    public List<Map<String, Object>> getIndividualCounselorState() {
+        return boardRepository.getIndividualCounselorState();
+    }
+
+    @Override
+    public Map<String, Object> getTestData(Map<String, Object> map) {
+        return boardMapper.getTestData(map);
     }
 }

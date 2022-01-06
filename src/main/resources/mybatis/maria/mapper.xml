@@ -3,9 +3,20 @@
 
 <mapper namespace="com.vdc.board.repository.interfaces.BoardMapper">
 
-    <select id="getTestData" parameterType="hashmap" resultType="hashmap">
-        CALL USP_Test_Board(#{dept})
+    <select id="getAgentStatus" parameterType="hashmap" resultType="hashmap">
+        CALL USP_Test_Board_AgentStatus_Grant(#{dept})
     </select>
 
+    <select id="getQueueRealTime" parameterType="hashmap" resultType="hashmap">
+        CALL USP_Test_Board_QueueRealTime_Grant(#{dept})
+    </select>
+
+    <select id="getQueueCumulativeRate" parameterType="hashmap" resultType="hashmap">
+        CALL USP_Test_Board_QueueCumulative_Rate_Grant(#{dept})
+    </select>
+
+    <select id="getUserRealTime" parameterType="hashmap" resultType="hashmap">
+        CALL USP_Test_Board_UserRealTime_Grant(#{dept})
+    </select>
 
 </mapper>

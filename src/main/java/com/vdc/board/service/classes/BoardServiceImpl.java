@@ -57,7 +57,22 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Map<String, Object> getTestData(Map<String, Object> map) {
-        return boardMapper.getTestData(map);
+    public Map<String, Object> getAgentStatus(Map<String, Object> map) {
+        return boardMapper.getAgentStatus(map);
+    }
+
+    @Override
+    public Map<String, Object> getQueueRealTime(Map<String, Object> map) {
+        return boardMapper.getQueueRealTime(map);
+    }
+
+    @Override
+    public Map<String, Object> getQueueCumulativeRate(Map<String, Object> map) {
+        return boardMapper.getQueueCumulativeRate(map);
+    }
+
+    @Override
+    public List<Map<String, Object>> getUserRealTime(Map<String, Object> map) {
+        return boardMapper.getUserRealTime(map);
     }
 }

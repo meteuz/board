@@ -28,9 +28,16 @@ public class BoardController {
     private String[] teamCallKeys = new String[]{"input", "wait_call", "response", "average_wait_time", "response_rate", "service"};
 
     private String[] teamCounselorFirstTitles = new String[]{"인 입", "응 대", "응 대 율", "대 기 호", "평균대기시간", "서비스레벨"};
-    private String[] teamCounselorFirstKeys = new String[]{"input", "response", "response_rate", "wait_call", "average_wait_time", "service"};
+    private String[] teamCounselorFirstKeys = new String[]{"Received", "Answered", "AnswerRate", "WaitCalls", "AverageAnsweredWaitTime", "ServiceLevel"};
     private String[] teamCounselorSecondTitles = new String[]{"로 그 인", "대 기", "통 화 중", "후 처 리", "이 석"};
-    private String[] teamCounselorSecondKeys = new String[]{"login", "wait", "calling", "after_handle", "other"};
+    private String[] teamCounselorSecondKeys = new String[]{"LOGIN", "IDLE", "BUSY", "WORK", "AWAY"};
+    // 상담원상태
+    //-이석(초기, 식사,휴식,교육,업무)
+    //-후처리
+    //-통화중
+    //-로그오프
+    //-기타
+    // IDLE, WORK, CONNECTED, AWAY,
     private Map<String, Object> stateColorMap = new HashMap<String, Object>() {{
         put("init", "icon_init");
         put("meal", "icon_meal");
@@ -102,16 +109,34 @@ public class BoardController {
     }
 
     @RequestMapping("team-counselor")
-    public String teamCounselor(Model model) {
+    public String teamCounselor(@RequestParam Map<String, Object> param, Model model) {
 
-        Map<String, Object> teamCounselorInfo = boardService.getTeamCounselorInfo();
-        model.addAttribute("teamCounselorInfo", teamCounselorInfo);
+//        Map<String, Object> teamCounselorInfo = boardService.getTeamCounselorInfo();
+//        model.addAttribute("teamCounselorInfo", teamCounselorInfo);
+        // QueueCumulative_Rate(인입, 응대, 응대율)
+        Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param);
+        // QueueRealTime(대기호, 평균대기시간, 서비스레벨)
+        Map<String, Object> queueRealTime = boardService.getQueueRealTime(param);
+        queueRealTime.putAll(queueCumulativeRate);
+        model.addAttribute("queueRealTime", queueRealTime);
+        System.out.println(queueRealTime);
 
-        Map<String, Object> teamCounselorInfo2 = boardService.getTeamCounselorInfo2();
-        model.addAttribute("teamCounselorInfo2", teamCounselorInfo2);
+
+
+//        Map<String, Object> teamCounselorInfo2 = boardService.getTeamCounselorInfo2();
+//        model.addAttribute("teamCounselorInfo2", teamCounselorInfo2);
+        // AgentStatus(로그인, 대기, 통화중, 후처리, 이석)
+        Map<String, Object> agentStatus = boardService.getAgentStatus(param);
+        model.addAttribute("agentStatus", agentStatus);
+
+
 
         List<Map<String, Object>> individualCounselorState = boardService.getIndividualCounselorState();
         model.addAttribute("individualCounselorState", individualCounselorState);
+        // UserRealTime
+        List<Map<String, Object>> userRealTime = boardService.getUserRealTime(param);
+        model.addAttribute("userRealTime", userRealTime);
+
 
         model.addAttribute("teamCounselorFirstTitles", teamCounselorFirstTitles);
         model.addAttribute("teamCounselorFirstKeys", teamCounselorFirstKeys);
@@ -129,7 +154,7 @@ public class BoardController {
     public String testData(@RequestParam Map<String, Object> param, Model model) {
 
         System.out.println(param);
-        Map<String, Object> testData = boardService.getTestData(param);
+        Map<String, Object> testData = boardService.getAgentStatus(param);
         System.out.println(testData);
 
         return "/board/team-counselor";

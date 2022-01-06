@@ -19,5 +19,8 @@ public interface BoardService {
 
 
 
-    Map<String, Object> getTestData(Map<String, Object> map);
+    Map<String, Object> getAgentStatus(Map<String, Object> map);
+    Map<String, Object> getQueueRealTime(Map<String, Object> map);
+    Map<String, Object> getQueueCumulativeRate(Map<String, Object> map);
+    List<Map<String, Object>> getUserRealTime(Map<String, Object> map);
 }

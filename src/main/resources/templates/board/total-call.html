@@ -24,13 +24,13 @@
 
 <body>
     <!-- header start -->
-    <header id="title">
+    <header id="title" th:style="${'background-image: url(../img/' + season + '.jpg);'}">
         전체 콜 운영 현황
     </header>
     <!-- header end -->
 
     <!-- section start -->
-    <section>
+    <section class="spring">
         <div class="contents container-fluid">
             <div class="row r1" th:each="row : ${#numbers.sequence(0,6,2)}">
                 <th:block th:each="num : ${#numbers.sequence(0,1)}">
@@ -38,7 +38,7 @@
                         <div th:class="${'subject w' + totalCallTitles[row + num].replace(' ', '').length()}" th:text="${totalCallTitles[row + num]}">총인입</div>
                     </div>
                     <div class="col-xs-3">
-                        <div class="value" th:text="${totalCallInfo.get(totalCallKeys[row + num])}"></div>
+                        <div class="value" th:text="${queueRealTime.get(totalCallKeys[row + num])}"></div>
                     </div>
                 </th:block>
             </div>

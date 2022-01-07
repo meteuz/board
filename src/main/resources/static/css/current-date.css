@@ -1,6 +1,9 @@
-/* footer */
-footer {
-    height: 10vh;
+.date {
+    height: 80%;
+    padding-top: 3rem;
+}
+.footer {
+    height: 20%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -11,7 +14,7 @@ footer {
 .current_date,
 .current_time {
     text-align: center;
-    font-size: 80px;
+    font-size: 70px;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
     font-family: monospace;
     font-weight: bold;

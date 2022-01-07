@@ -14,9 +14,9 @@ public interface BoardMapper {
     // QueueRealTime(대기호, 평균대기시간, 서비스레벨)
     Map<String, Object> getQueueRealTime(Map<String, Object> map);
 
-    // QueueCumulative_Rate(인입, 응대, 응대율)
+    // QueueCumulative_Rate(인입, 응대, 포기, 응대율)
     Map<String, Object> getQueueCumulativeRate(Map<String, Object> map);
 
-    // getUserRealTime
+    // getUserRealTime(개인별 상태)
     List<Map<String, Object>> getUserRealTime(Map<String, Object> map);
 }

@@ -25,8 +25,20 @@ section {
     justify-content: center;
 }
 
-.all {
+/*.all {*/
+/*    background-color: yellow;*/
+/*}*/
+.spring_all {
+    background-color: hotpink;
+}
+.summer_all {
+    background-color: dodgerblue;
+}
+.fall_all {
     background-color: yellow;
+}
+.winter_all {
+    background-color: lightgrey;
 }
 
 .w2 {

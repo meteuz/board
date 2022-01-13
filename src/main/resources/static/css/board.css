@@ -19,7 +19,7 @@ header {
     height: 20vh;
     margin: 0px;
     padding: 0px;
-    background-image: url(../img/winter.jpg);
+    background-image: url(../img/winter5.jpg);
     background-size: cover;
     align-items: center;
     justify-content: center;
@@ -28,7 +28,7 @@ header {
     font-size: 70px;
     color: white;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-    font-family: monospace;
+    font-family: sans-serif;
     font-weight: bold;
 }
 
@@ -72,7 +72,7 @@ section {
     content: "";
     /*background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);*/
     /*background: linear-gradient(white 10%, mediumspringgreen);*/
-    background: radial-gradient(white 80%, mediumspringgreen);
+    background: radial-gradient(white 80%, lightpink);
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
     position: absolute;
@@ -87,7 +87,7 @@ section {
     content: "";
     /*background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);*/
     /*background: linear-gradient(white 10%, aqua);*/
-    background: radial-gradient(white 80%, aqua);
+    background: radial-gradient(white 80%, royalblue);
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
     position: absolute;
@@ -117,7 +117,7 @@ section {
     content: "";
     /*background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);*/
     /*background: linear-gradient(white 10%, mediumblue);*/
-    background: radial-gradient(white 80%, mediumblue);
+    background: radial-gradient(white 80%, darkgray);
     /*background-repeat: no-repeat;*/
     /*background-size: cover;*/
     position: absolute;

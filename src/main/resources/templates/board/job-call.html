@@ -30,18 +30,21 @@
     <!-- header end -->
 
     <!-- section start -->
-    <section class="summer">
-        <div class="contents container-fluid">
+    <section th:class="${season}">
+        <div class="contents container-fluid" th:with="jobCallConst = ${T(com.vdc.board.common.enums.JobCallConst).values()}">
             <div class="row r1">
-                <div class="col-xs-2" th:each="title : ${jobCallTitles}">
-                    <div th:class="'subject ' + ${titleStat.index == 0 ? 'w2' : 'col_title'}" th:text="${title}"></div>
+                <div class="col-xs-2" th:each="value : ${jobCallConst}">
+                    <div th:style="${'background-color: ' + season.getColor() + ';'}"
+                         th:class="'subject ' + ${valueStat.index == 0 ? 'w2' : 'col_title'}"
+                         th:text="${value.getColTitle()}"></div>
                 </div>
             </div>
 
             <div class="row r2" th:each="data : ${jobCallInfoList}">
-                <div class="col-xs-2" th:each="key : ${jobCallKeys}">
-                    <div th:class="${keyStat.index == 0 ? 'subject w' + data.get('title').replace(' ', '').length : 'value'}"
-                         th:classappend="${(dataStat.index == 0 && keyStat.index == 0) ? 'all' : ''}" th:text="${data.get(key)}"></div>
+                <div class="col-xs-2" th:each="value : ${jobCallConst}">
+                    <div th:class="${valueStat.index == 0 ? 'subject w' + data.get('title').replace(' ', '').length : 'value'}"
+                         th:style="${(valueStat.index == 0 && dataStat.index != 0) ? 'background-color: ' + season.getColor() + ';' : ''}"
+                         th:classappend="${(dataStat.index == 0 && valueStat.index == 0) ? season.toString() + '_all' : ''}" th:text="${data.get(value.getKey())}"></div>
                 </div>
             </div>
         </div>

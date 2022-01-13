@@ -32,32 +32,34 @@
     <!-- header end -->
 
     <!-- section start -->
-    <section class="winter">
+    <section th:class="${season}">
         <div class="contents container-fluid">
             <div class="row">
-                <div class="col-xs-2" th:each="title : ${teamCounselorFirstTitles}">
-                    <div th:class="${'subject w' + title.replace(' ', '').length()}" th:text="${title}"></div>
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
+                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length()}"
+                         th:text="${value.getTitle()}"
+                         th:style="${'background-color: ' + season.getColor() + ';'}"></div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-xs-2" th:each="key : ${teamCounselorFirstKeys}">
-                    <div class="value" th:text="${queueRealTime.get(key)}"></div>
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
+                    <div class="value" th:text="${queueRealTime.get(value.getKey())}"></div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-xs-1"></div>
-                <div class="col-xs-2" th:each="title : ${teamCounselorSecondTitles}">
-                    <div th:class="${'subject w' + title.replace(' ', '').length() + ' sub' + titleStat.count}" th:text="${title}"></div>
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
+                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length() + ' sub' + valueStat.count}" th:text="${value.getTitle()}"></div>
                 </div>
                 <div class="col-xs-1"></div>
             </div>
 
             <div class="row">
                 <div class="col-xs-1"></div>
-                <div class="col-xs-2" th:each="key : ${teamCounselorSecondKeys}">
-                    <div class="value" th:text="${agentStatus.get(key)}"></div>
+                <div class="col-xs-2" th:each="key : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
+                    <div class="value" th:text="${agentStatus.get(key.toString())}"></div>
                 </div>
                 <div class="col-xs-1"></div>
             </div>
@@ -66,10 +68,13 @@
                 <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
                     <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
                         <div class="row value">
-                            <div class="col-xs-2 img" th:if="${userRealTime.size() > (row + num)}">
+                            <div class="col-xs-2 img" th:if="${userRealTime.size() > (row + num)}" th:with="state = ${T(com.vdc.board.common.enums.CounselorState).valueOf(userRealTime.get(row + num).get('State'))}">
                                 <span class="fa-stack fa-lg">
-                                    <i th:class="${'fas fa-square fa-stack-2x ' + stateColorMap.get(userRealTime.get(row + num).get('State'))}"></i>
-                                    <i th:class="${'fal ' + stateIconMap.get(userRealTime.get(row + num).get('State')) + ' fa-stack-1x icon'}"
+<!--                                    <i th:class="${'fas fa-square fa-stack-2x ' + stateColorMap.get(userRealTime.get(row + num).get('State'))}"></i>-->
+<!--                                    <i th:class="${'fal ' + stateIconMap.get(userRealTime.get(row + num).get('State')) + ' fa-stack-1x icon'}"-->
+<!--                                       th:classappend="${userRealTime.get(row + num).get('State') == 'off' ? 'text-danger' : 'text-white'}"></i>-->
+                                    <i th:class="${'fas fa-square fa-stack-2x ' + state.getColor()}"></i>
+                                    <i th:class="${'fal ' + state.getIcon() + ' fa-stack-1x icon'}"
                                        th:classappend="${userRealTime.get(row + num).get('State') == 'off' ? 'text-danger' : 'text-white'}"></i>
                                 </span>
                             </div>

@@ -67,7 +67,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public Map<String, Object> getQueueCumulativeRate(Map<String, Object> map) {
+    public List<Map<String, Object>> getQueueCumulativeRate(Map<String, Object> map) {
         return boardMapper.getQueueCumulativeRate(map);
     }
 

@@ -14,11 +14,39 @@ section {
     display: flex;
     padding: 0px;
     height: 7rem;
-    font-size: 5rem;
+    font-size: 4.5rem;
     align-items: center;
     justify-content: center;
 }
 
 .row {
     margin-bottom: 15px;
+}
+
+@media (min-width: 1280px) {
+    header {
+        height: 25vh;
+        font-size: 75px;
+    }
+
+    section {
+        height: 75vh;
+    }
+
+    .subject {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 9rem;
+        font-size: 5rem;
+    }
+
+    .value {
+        display: flex;
+        padding: 0px;
+        height: 9rem;
+        font-size: 5.5rem;
+        align-items: center;
+        justify-content: center;
+    }
 }

@@ -1,5 +1,7 @@
 package com.vdc.board.repository.classes;
 
+import com.vdc.board.common.enums.TeamCounselorSecondConst;
+import com.vdc.board.common.enums.TotalCallConst;
 import com.vdc.board.repository.interfaces.BoardRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,7 +19,7 @@ public class MemoryBoardRepository implements BoardRepository {
     private Map<String, Object> teamCallInfo;
     private List<Map<String, Object>> individualPerformanceList;
 
-    private String[] labels = new String[] {"title", "total_input", "response", "give_up", "response_rate", "service_level"};
+    private String[] labels = new String[] {"title", "Received", "Answered", "Abandoned", "AnswerRate", "ServiceLevel"};
 
     private String[] nameArray = new String[] {"고구정", "이지연", "김미현A", "이서하", "권태정", "이수언", "이정현", "이은옥"};
     private Integer[] countArray = new Integer[] {0, 12, 54, 38, 30, 49, 33, 25};
@@ -26,7 +28,7 @@ public class MemoryBoardRepository implements BoardRepository {
     private Map<String, Object> teamCounselorInfo2;
     private List<Map<String, Object>> individualStateList;
 
-    private String[] stateArray = new String[] {"init", "meal", "rest", "education", "work", "calling", "off", "handling"};
+    private String[] stateArray = new String[] {"INIT", "MEAL", "REST", "EDUCATION", "WORK", "CALLING", "OFF", "HANDLING"};
     private String[] timeArray = new String[] {"0:00:00", "00:00:49", "0:00:00", "0:00:00", "00:02:47", "0:00:00", "00:01:09", "00:04:59"};
 
 
@@ -86,14 +88,14 @@ public class MemoryBoardRepository implements BoardRepository {
     public void initTotalCallInfo() {
         totalCallInfo = new HashMap<>();
 
-        totalCallInfo.put("total_input", "2,915");
-        totalCallInfo.put("login", "17");
-        totalCallInfo.put("response", "1,051");
-        totalCallInfo.put("waiter", "5");
-        totalCallInfo.put("give_up", "1,856");
-        totalCallInfo.put("wait_call", "27");
-        totalCallInfo.put("response_rate", "36.1%");
-        totalCallInfo.put("average_wait_time", "0:01:27");
+        totalCallInfo.put(TotalCallConst.RECEIVED.getKey(), "2,915");
+        totalCallInfo.put(TotalCallConst.LOGIN.getKey(), "17");
+        totalCallInfo.put(TotalCallConst.ANSWERED.getKey(), "1,051");
+        totalCallInfo.put(TotalCallConst.IDLE.getKey(), "5");
+        totalCallInfo.put(TotalCallConst.ABANDONED.getKey(), "1,856");
+        totalCallInfo.put(TotalCallConst.WAIT_CALLS.getKey(), "27");
+        totalCallInfo.put(TotalCallConst.ANSWER_RATE.getKey(), "36.1%");
+        totalCallInfo.put(TotalCallConst.AVERAGE_ANSWER_WAIT_TIME.getKey(), "0:01:27");
     }
 
     public void initJobCallInfo() {
@@ -108,23 +110,19 @@ public class MemoryBoardRepository implements BoardRepository {
         jobCallInfo.put("work", work);
         jobCallInfoList.add(work);
 
-        HashMap<String, Object> foreigner = setMap(new HashMap<>(), new String[]{"외국인고용", "50", "33", "17", "66.0%", "0.0%"});
-        jobCallInfo.put("foreigner", foreigner);
-        jobCallInfoList.add(foreigner);
-
-        HashMap<String, Object> insurance = setMap(new HashMap<>(), new String[]{"고용보험", "504", "340", "159", "67.5%", "3.4%"});
+        HashMap<String, Object> insurance = setMap(new HashMap<>(), new String[]{"고용보험", "50", "33", "17", "66.0%", "0.0"});
         jobCallInfo.put("insurance", insurance);
         jobCallInfoList.add(insurance);
 
-        HashMap<String, Object> skill = setMap(new HashMap<>(), new String[]{"능력개발", "277", "234", "42", "84.5%", "34.3%"});
+        HashMap<String, Object> skill = setMap(new HashMap<>(), new String[]{"능력개발", "504", "340", "159", "67.5%", "3.4%"});
         jobCallInfo.put("skill", skill);
         jobCallInfoList.add(skill);
 
-        HashMap<String, Object> counselor = setMap(new HashMap<>(), new String[]{"상담원연결", "193", "155", "37", "80.3%", "28.5%"});
-        jobCallInfo.put("counselor", counselor);
-        jobCallInfoList.add(counselor);
+        HashMap<String, Object> foreigner = setMap(new HashMap<>(), new String[]{"외국인고용", "277", "234", "42", "84.5%", "34.3%"});
+        jobCallInfo.put("foreigner", foreigner);
+        jobCallInfoList.add(foreigner);
 
-        HashMap<String, Object> etc = setMap(new HashMap<>(), new String[]{"기 타", "1,272", "82", "1,190", "6.4%", "0.7%"});
+        HashMap<String, Object> etc = setMap(new HashMap<>(), new String[]{"기타문의", "193", "155", "37", "80.3%", "28.5%"});
         jobCallInfo.put("etc", etc);
         jobCallInfoList.add(etc);
     }
@@ -139,12 +137,12 @@ public class MemoryBoardRepository implements BoardRepository {
     public void initTeamCallInfo() {
         teamCallInfo = new HashMap<>();
 
-        teamCallInfo.put("input", "277");
-        teamCallInfo.put("wait_call", "0");
-        teamCallInfo.put("response", "233");
-        teamCallInfo.put("average_wait_time", "0:01:34");
-        teamCallInfo.put("response_rate", "84.1%");
-        teamCallInfo.put("service", "34.3%");
+        teamCallInfo.put("Received", "277");
+        teamCallInfo.put("WaitCalls", "0");
+        teamCallInfo.put("Answered", "233");
+        teamCallInfo.put("AverageAnsweredWaitTime", "0:01:34");
+        teamCallInfo.put("AnswerRate", "84.1%");
+        teamCallInfo.put("ServiceLevel", "34.3%");
     }
 
     public void initIndividualPerformance() {
@@ -152,8 +150,8 @@ public class MemoryBoardRepository implements BoardRepository {
 
         IntStream.range(0, nameArray.length).forEach(i -> {
             HashMap<String, Object> individualMap = new HashMap<>();
-            individualMap.put("name", nameArray[i]);
-            individualMap.put("count", countArray[i]);
+            individualMap.put("UserName", nameArray[i]);
+            individualMap.put("Handled", countArray[i]);
             individualPerformanceList.add(individualMap);
         });
     }
@@ -161,22 +159,22 @@ public class MemoryBoardRepository implements BoardRepository {
     public void initTeamCounselorInfo() {
         teamCounselorInfo = new HashMap<>();
 
-        teamCounselorInfo.put("input", "277");
-        teamCounselorInfo.put("response", "234");
-        teamCounselorInfo.put("response_rate", "84.5%");
-        teamCounselorInfo.put("wait_call", "0");
-        teamCounselorInfo.put("average_wait_time", "0:01:34");
-        teamCounselorInfo.put("service", "34.3%");
+        teamCounselorInfo.put("Received", "277");
+        teamCounselorInfo.put("Answered", "234");
+        teamCounselorInfo.put("AnswerRate", "84.5%");
+        teamCounselorInfo.put("WaitCalls", "0");
+        teamCounselorInfo.put("AverageAnsweredWaitTime", "0:01:34");
+        teamCounselorInfo.put("ServiceLevel", "34.3%");
     }
 
     public void initTeamCounselorInfo2() {
         teamCounselorInfo2 = new HashMap<>();
 
-        teamCounselorInfo2.put("login", "4");
-        teamCounselorInfo2.put("wait", "4");
-        teamCounselorInfo2.put("calling", "0");
-        teamCounselorInfo2.put("after_handle", "0");
-        teamCounselorInfo2.put("other", "0");
+        teamCounselorInfo2.put(TeamCounselorSecondConst.LOGIN.toString(), "4");
+        teamCounselorInfo2.put(TeamCounselorSecondConst.IDLE.toString(), "4");
+        teamCounselorInfo2.put(TeamCounselorSecondConst.BUSY.toString(), "0");
+        teamCounselorInfo2.put(TeamCounselorSecondConst.WORK.toString(), "0");
+        teamCounselorInfo2.put(TeamCounselorSecondConst.AWAY.toString(), "0");
     }
 
     public void initIndividualCounselorState() {
@@ -184,9 +182,9 @@ public class MemoryBoardRepository implements BoardRepository {
 
         IntStream.range(0, nameArray.length).forEach(i -> {
             HashMap<String, Object> individualMap = new HashMap<>();
-            individualMap.put("name", nameArray[i]);
-            individualMap.put("time", timeArray[i]);
-            individualMap.put("state", stateArray[i]);
+            individualMap.put("UserName", nameArray[i]);
+            individualMap.put("TimeInState", timeArray[i]);
+            individualMap.put("State", stateArray[i]);
             individualStateList.add(individualMap);
         });
     }

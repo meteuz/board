@@ -1,17 +1,17 @@
 
 header {
-    height: 15vh;
+    height: 17vh;
     font-size: 60px;
 }
 section {
-    height: 85vh;
+    height: 83vh;
 }
 .subject {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 4.5rem;
-    font-size: 3rem;
+    font-size: 2.8rem;
 }
 .col_title {
     font-size: 2.8rem;
@@ -53,4 +53,25 @@ section {
 }
 .w5 {
     font-stretch: ultra-condensed;
+}
+
+@media (min-width: 1280px) {
+    header {
+        height: 20vh;
+        font-size: 6.5rem;
+    }
+
+    section {
+        height: 80vh;
+    }
+
+    .subject {
+        height: 5.5rem;
+        font-size: 3.2rem;
+    }
+
+    .value {
+        height: 5.5rem;
+        font-size: 4.5rem;
+    }
 }

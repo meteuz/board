@@ -101,3 +101,31 @@ section {
 .sub5 {
     background-color: coral;
 }
+
+@media (min-width: 1280px) {
+    header {
+        height: 18vh;
+        font-size: 5.5rem;
+    }
+
+    section {
+        height: 82vh;
+    }
+
+    .subject {
+        height: 5rem;
+        font-size: 3rem;
+    }
+
+    .value {
+        height: 5rem;
+        font-size: 4.2rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+}

@@ -16,11 +16,13 @@ import java.util.Map;
 @Controller
 public class BoardController {
 
+    private static final boolean IS_TEST = true;
+
     private final BoardService boardService;
 
     // AgentStatus(로그인, 대기, 통화중, 후처리, 이석)
     // QueueRealTime(대기호, 평균대기시간, 서비스레벨)
-    // QueueCumulative_Rate(인입, 응대, 포기, 응대율)
+    // QueueCumulative_Rate(인입, 응대, 포기, 응대율, 서비스레벨) - 15분마다 레코드 추가
     // getUserRealTime(개인별 상태)
 
     @RequestMapping("current-date")
@@ -39,11 +41,18 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
 
-        Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param);
-        Map<String, Object> queueRealTime = boardService.getQueueRealTime(param);
-        queueRealTime.putAll(queueCumulativeRate);
-        Map<String, Object> agentStatus = boardService.getAgentStatus(param);
-        queueRealTime.putAll(agentStatus);
+        Map<String, Object> queueRealTime = null;
+
+        if (IS_TEST) {
+            queueRealTime = boardService.getTotalCallInfo();
+        } else {
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            queueRealTime = boardService.getQueueRealTime(param);
+            queueRealTime.putAll(queueCumulativeRate);
+            Map<String, Object> agentStatus = boardService.getAgentStatus(param);
+            queueRealTime.putAll(agentStatus);
+        }
+
         model.addAttribute("queueRealTime", queueRealTime);
 
         return "/board/total-call";
@@ -54,7 +63,14 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
 
-        List<Map<String, Object>> jobCallInfoList = boardService.getJobCallInfoList();
+        List<Map<String, Object>> jobCallInfoList = null;
+
+        if (IS_TEST) {
+            jobCallInfoList = boardService.getJobCallInfoList();
+        } else {
+            jobCallInfoList = boardService.getQueueCumulativeRate(param);
+        }
+
         model.addAttribute("jobCallInfoList", jobCallInfoList);
 
         return "/board/job-call";
@@ -65,12 +81,21 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
 
-        Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param);
-        Map<String, Object> queueRealTime = boardService.getQueueRealTime(param);
-        queueRealTime.putAll(queueCumulativeRate);
-        model.addAttribute("queueRealTime", queueRealTime);
+        Map<String, Object> queueRealTime = null;
+        List<Map<String, Object>> userRealTime = null;
 
-        List<Map<String, Object>> userRealTime = boardService.getUserRealTime(param);
+        if (IS_TEST) {
+            queueRealTime = boardService.getTeamCallInfo();
+            userRealTime = boardService.getIndividualPerformance();
+        } else {
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            queueRealTime = boardService.getQueueRealTime(param);
+            queueRealTime.putAll(queueCumulativeRate);
+
+            userRealTime = boardService.getUserRealTime(param);
+        }
+
+        model.addAttribute("queueRealTime", queueRealTime);
         model.addAttribute("userRealTime", userRealTime);
 
         return "/board/team-call";
@@ -81,19 +106,26 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
 
-        // QueueCumulative_Rate(인입, 응대, 응대율)
-        Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param);
-        // QueueRealTime(대기호, 평균대기시간, 서비스레벨)
-        Map<String, Object> queueRealTime = boardService.getQueueRealTime(param);
-        queueRealTime.putAll(queueCumulativeRate);
+        Map<String, Object> queueRealTime = null;
+        Map<String, Object> agentStatus = null;
+        List<Map<String, Object>> userRealTime = null;
+
+        if (IS_TEST) {
+            queueRealTime = boardService.getTeamCounselorInfo();
+            agentStatus = boardService.getTeamCounselorInfo2();
+            userRealTime = boardService.getIndividualCounselorState();
+        } else {
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            queueRealTime = boardService.getQueueRealTime(param);
+            queueRealTime.putAll(queueCumulativeRate);
+
+            agentStatus = boardService.getAgentStatus(param);
+
+            userRealTime = boardService.getUserRealTime(param);
+        }
+
         model.addAttribute("queueRealTime", queueRealTime);
-
-        // AgentStatus(로그인, 대기, 통화중, 후처리, 이석)
-        Map<String, Object> agentStatus = boardService.getAgentStatus(param);
         model.addAttribute("agentStatus", agentStatus);
-
-        // UserRealTime
-        List<Map<String, Object>> userRealTime = boardService.getUserRealTime(param);
         model.addAttribute("userRealTime", userRealTime);
 
         return "/board/team-counselor";

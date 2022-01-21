@@ -32,9 +32,6 @@ header {
     font-weight: bold;
 }
 
-
-
-
 /* section */
 section {
     height: 80vh;
@@ -44,28 +41,6 @@ section {
     z-index: 1;
 }
 
-/*section::after {*/
-/*    height: 100%;*/
-/*    width: 100%;*/
-/*    content: "";*/
-/*    !*background-image: url(../img/snowman.jpg), linear-gradient(to top, #eb01a5, white);*!*/
-/*    background: linear-gradient(white 10%, royalblue);*/
-/*    !*background-repeat: no-repeat;*!*/
-/*    !*background-size: cover;*!*/
-/*    position: absolute;*/
-/*    top: 0;*/
-/*    left: 0;*/
-/*    z-index: -1;*/
-/*    opacity: 0.5;*/
-/*}*/
-
-/*.spring,*/
-/*.summer,*/
-/*.fall,*/
-/*.winter {*/
-/*    position: relative;*/
-/*    z-index: 1;*/
-/*}*/
 .spring::after {
     height: 100%;
     width: 100%;
@@ -126,7 +101,6 @@ section {
     z-index: -1;
     opacity: 0.5;
 }
-
 
 
 .contents {
@@ -216,12 +190,12 @@ section {
 }
 .w5 {
     text-indent: -1rem;
-    letter-spacing: -0.6rem;
+    letter-spacing: -0.5rem;
 }
 .w6 {
     text-indent: -1rem;
 /*    letter-spacing: -0.9rem;*/
-    letter-spacing: -0.9rem;
+    letter-spacing: -0.6rem;
 /*    font-size: 40px;*/
 }
 
@@ -240,13 +214,19 @@ section {
     border-style: solid;
     border-color: #d3d3d3;
     border-radius: 15px;
-    padding-top: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 5px;
+    padding: 10px 10px 5px;
     margin-top: 5px;
 
     background-color: white;
 }
 
+@media (min-width: 1280px) {
+    header {
+        height: 25vh;
+        font-size: 75px;
+    }
 
+    section {
+        height: 75vh;
+    }
+}

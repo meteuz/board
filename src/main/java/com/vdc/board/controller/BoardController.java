@@ -16,7 +16,7 @@ import java.util.Map;
 @Controller
 public class BoardController {
 
-    private static final boolean IS_TEST = true;
+    private static final boolean IS_TEST = false;
 
     private final BoardService boardService;
 
@@ -46,11 +46,19 @@ public class BoardController {
         if (IS_TEST) {
             queueRealTime = boardService.getTotalCallInfo();
         } else {
-            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).size() == 0 ? null : boardService.getQueueCumulativeRate(param).get(0);
             queueRealTime = boardService.getQueueRealTime(param);
-            queueRealTime.putAll(queueCumulativeRate);
             Map<String, Object> agentStatus = boardService.getAgentStatus(param);
-            queueRealTime.putAll(agentStatus);
+
+            if (queueRealTime != null) {
+                if (queueCumulativeRate != null) {
+                    queueRealTime.putAll(queueCumulativeRate);
+                }
+
+                if (agentStatus != null) {
+                    queueRealTime.putAll(agentStatus);
+                }
+            }
         }
 
         model.addAttribute("queueRealTime", queueRealTime);
@@ -88,9 +96,14 @@ public class BoardController {
             queueRealTime = boardService.getTeamCallInfo();
             userRealTime = boardService.getIndividualPerformance();
         } else {
-            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).size() == 0 ? null : boardService.getQueueCumulativeRate(param).get(0);
             queueRealTime = boardService.getQueueRealTime(param);
-            queueRealTime.putAll(queueCumulativeRate);
+
+            if (queueRealTime != null) {
+                if (queueCumulativeRate != null) {
+                    queueRealTime.putAll(queueCumulativeRate);
+                }
+            }
 
             userRealTime = boardService.getUserRealTime(param);
         }
@@ -101,6 +114,12 @@ public class BoardController {
         return "/board/team-call";
     }
 
+    // PresenceState
+    // ACTIVE(HandlingState) : 상담원전화상태(code_cmm 4)
+    // BUSY(RoutingState, RoutingStateReasonKey) : 이석(code_cmm 1) -> 0 : 이석, 1 : Service Out, 2 : Automatic, 4 : 식사, 6 : 휴식, 8 : 교육, 10 : 업무
+    // else(PresenceState) : 상담원상태(code_cmm 5) -> 99 : 시스템 이석, 98 : 상담원 이석, 97 : 후처리, 96 : 식사, 95 : 교육, 94 : 회의
+    // AWAY : 이석 , WORK : 후처리, IDLE : 대기, BUSY : 상담중(통화중)
+    // INIT : 초기 , MEAL : 식사, BREAK : 휴식, EDUCATION : 교육, JOB : 업무
     @RequestMapping("team-counselor")
     public String teamCounselor(@RequestParam Map<String, Object> param, Model model) {
 
@@ -115,9 +134,14 @@ public class BoardController {
             agentStatus = boardService.getTeamCounselorInfo2();
             userRealTime = boardService.getIndividualCounselorState();
         } else {
-            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).get(0);
+            Map<String, Object> queueCumulativeRate = boardService.getQueueCumulativeRate(param).size() == 0 ? null : boardService.getQueueCumulativeRate(param).get(0);
             queueRealTime = boardService.getQueueRealTime(param);
-            queueRealTime.putAll(queueCumulativeRate);
+
+            if (queueRealTime != null) {
+                if (queueCumulativeRate != null) {
+                    queueRealTime.putAll(queueCumulativeRate);
+                }
+            }
 
             agentStatus = boardService.getAgentStatus(param);
 

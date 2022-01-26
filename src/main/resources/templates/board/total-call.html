@@ -40,7 +40,7 @@
                              th:style="${'background-color: ' + season.getColor() + ';'}">총인입</div>
                     </div>
                     <div class="col-xs-3">
-                        <div class="value" th:text="${queueRealTime.get(totalCallConst[row + num].getKey())}"></div>
+                        <div class="value" th:text="${not #strings.isEmpty(queueRealTime.get(totalCallConst[row + num].getKey())) ? queueRealTime.get(totalCallConst[row + num].getKey()) : '0'}">0</div>
                     </div>
                 </th:block>
             </div>

@@ -68,6 +68,9 @@ section {
 .icon_off {
     color: darkblue;
 }
+.icon_etc {
+    color: bisque;
+}
 
 .name {
     text-align: end;

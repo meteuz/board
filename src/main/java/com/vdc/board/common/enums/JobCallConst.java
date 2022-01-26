@@ -5,7 +5,6 @@ import lombok.Getter;
 @Getter
 public enum JobCallConst {
 
-    TITLE("구 분", "title"),
     RECEIVED("총인입", "Received"),
     ANSWERED("응 대", "Answered"),
     ABANDONED("포 기", "Abandoned"),

@@ -18,7 +18,8 @@ public enum CounselorState {
     WORK("work", "icon_work", "fa-phone-rotary"),                       // 이석(업무)
     CALLING("calling", "icon_calling", "fa-phone-volume"),              // 통화중
     OFF("off", "icon_off", "fa-user-slash"),                            // 로그오프
-    HANDLING("handling", "icon_handling", "fa-pencil-alt");             // 후처리
+    HANDLING("handling", "icon_handling", "fa-pencil-alt"),             // 후처리
+    ETC("etc", "icon_etc", "fa-grip-horizontal");
 
     private final String state;
     private final String color;

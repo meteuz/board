@@ -23,14 +23,15 @@
     <script>
         //        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
         //        const currentDate = new Date();
-        //        
+        //
         //        let yearStr = currentDate.getFullYear() + '년';
         //        let monthStr = (currentDate.getMonth() + 1) + '월';
         //        let dateStr = currentDate.getDate() + '일';
         //        let dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';
         //        let currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dateStr
-        //        
+        //
         //        let timeStr = currentDate.getHours() + ':' + currentDate.getMinutes();
+
 
     </script>
 </head>
@@ -47,12 +48,14 @@
         <div class="contents first_page container-fluid" style="height: 100%">
             <div class="date">
                 <div class="row r1">
-                    <div class="col-xs-12 current_date" th:text="${currentDate}">2021년 12월 01일 [수]</div>
+                    <div class="col-xs-12 current_date" id="currentDate" th:text="${currentDate}">2021년 12월 01일 [수]</div>
                 </div>
 
                 <div class="row r2">
-                    <div class="col-xs-12 current_time" th:text="${currentTime}">오후 01:00</div>
+                    <div class="col-xs-12 current_time" id="currentTime" th:text="${currentTime}">오후 01:00</div>
                 </div>
+
+                <h1 class="h1-clock"></h1>
             </div>
 
             <div class="row footer">
@@ -74,7 +77,72 @@
     <!-- 외부 script end -->
 
     <!-- 내부 script start -->
-    <script>
+    <script type="text/javascript" th:inline="javascript">
+        //        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
+        //        const currentDate = new Date();
+        //
+        //        let yearStr = currentDate.getFullYear() + '년';
+        //        let monthStr = (currentDate.getMonth() + 1) + '월';
+        //        let dateStr = currentDate.getDate() + '일';
+        //        let dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';
+        //        let currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dateStr
+        //
+        //        let timeStr = currentDate.getHours() + ':' + currentDate.getMinutes();
+        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
+        const currentDate = new Date();
+
+        let timeout = '';
+
+        $(document).ready(function() {
+
+            // function getTime(){
+            //     const time = new Date();
+            //     const hour = time.getHours();
+            //     const minutes = time.getMinutes();
+            //     const seconds = time.getSeconds();
+            //     //clock.innerHTML = hour +":" + minutes + ":"+seconds;
+            //     $('.h1-clock').text(`${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`);
+            //     console.log(`${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`);
+            // }
+            //
+            // function init() {
+            //     timeout = setInterval(getTime, 1000);
+            // }
+            //
+            // init();
+
+
+
+            // (function poll() {
+            //     $.ajax({
+            //         url: "current-date",
+            //         data : {dept: '', season: 1},
+            //         type: "get",
+            //         cache: false,
+            //         success: function (data) {
+            //             console.log('data = ' + data);
+            //         }
+            //     });
+            //     timeout = setTimeout(poll(), 1000);
+            //     // timeout = setTimeout(function() {
+            //     //     let yearStr = currentDate.getFullYear() + '년';
+            //     //     let monthStr = (currentDate.getMonth() + 1) + '월';
+            //     //     let dateStr = currentDate.getDate() + '일';
+            //     //     let dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';
+            //     //     let currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dateStr
+            //     //
+            //     //     let timeStr = currentDate.getHours() + ':' + currentDate.getMinutes() + ':' + currentDate.getSeconds();
+            //     //
+            //     //     $('#currentDate').text(currentDateStr);
+            //     //     $('#currentTime').text(timeStr);
+            //     // }, 1000)
+            // })();
+
+            $(window).on('beforeunload', function() {
+                clearTimeout(timeout);
+            });
+
+        });
 
     </script>
     <!-- 내부 script end -->

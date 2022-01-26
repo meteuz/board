@@ -33,18 +33,25 @@
     <section th:class="${season}">
         <div class="contents container-fluid" th:with="jobCallConst = ${T(com.vdc.board.common.enums.JobCallConst).values()}">
             <div class="row r1">
+                <div class="col-xs-2 subject w2"
+                     th:style="${'background-color: ' + season.getColor() + ';'}"
+                     th:text="'구 분'">
+
+                </div>
                 <div class="col-xs-2" th:each="value : ${jobCallConst}">
                     <div th:style="${'background-color: ' + season.getColor() + ';'}"
-                         th:class="'subject ' + ${valueStat.index == 0 ? 'w2' : 'col_title'}"
+                         th:class="'subject col_title'"
                          th:text="${value.getColTitle()}"></div>
                 </div>
             </div>
 
-            <div class="row r2" th:each="data : ${jobCallInfoList}">
-                <div class="col-xs-2" th:each="value : ${jobCallConst}">
-                    <div th:class="${valueStat.index == 0 ? 'subject w' + data.get('title').replace(' ', '').length : 'value'}"
-                         th:style="${(valueStat.index == 0 && dataStat.index != 0) ? 'background-color: ' + season.getColor() + ';' : ''}"
-                         th:classappend="${(dataStat.index == 0 && valueStat.index == 0) ? season.toString() + '_all' : ''}" th:text="${data.get(value.getKey())}"></div>
+            <div class="row r2" th:each="jobCallRecordConst : ${T(com.vdc.board.common.enums.JobCallRecordConst).values()}">
+                <div th:class="${'col-xs-2 subject w' + jobCallRecordConst.getRecTitle().replace(' ', '').length}"
+                     th:classappend="${season.toString() + '_all'}"
+                     th:text="${jobCallRecordConst.getRecTitle()}"></div>
+                <div class="col-xs-2 value"
+                     th:each="value : ${jobCallConst}"
+                     th:text="${jobCallInfoList.size() > 0 ? jobCallInfoList[jobCallRecordConstStat.index]?.get(value.getKey()) : '0'}">
                 </div>
             </div>
         </div>

@@ -44,7 +44,7 @@
 
             <div class="row">
                 <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
-                    <div class="value" th:text="${queueRealTime.get(value.getKey())}"></div>
+                    <div class="value" th:text="${not #strings.isEmpty(queueRealTime.get(value.getKey())) ? queueRealTime.get(value.getKey()) : '0'}"></div>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-xs-1"></div>
                 <div class="col-xs-2" th:each="key : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
-                    <div class="value" th:text="${agentStatus.get(key.toString())}"></div>
+                    <div class="value" th:text="${not #strings.isEmpty(agentStatus.get(key.toString())) ? agentStatus.get(key.toString()) : '0'}"></div>
                 </div>
                 <div class="col-xs-1"></div>
             </div>
@@ -79,10 +79,10 @@
                                 </span>
                             </div>
                             <div class="col-xs-5 name" th:if="${userRealTime.size() > (row + num)}">
-                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('UserName')}"></span>
+                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('Emp_Nm')}"></span>
                             </div>
                             <div class="col-xs-5 count" th:if="${userRealTime.size() > (row + num)}">
-                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('TimeInState')}"></span>
+                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('CurrentActTime')}"></span>
                             </div>
                         </div>
                     </div>

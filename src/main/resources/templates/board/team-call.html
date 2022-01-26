@@ -41,7 +41,7 @@
                                  th:style="${'background-color: ' + season.getColor() + ';'}"></div>
                         </div>
                         <div class="col-xs-7">
-                            <div class="value" th:text="${queueRealTime.get(teamCallConst[row + num].getKey())}"></div>
+                            <div class="value" th:text="${not #strings.isEmpty(queueRealTime.get(teamCallConst[row + num].getKey())) ? queueRealTime.get(teamCallConst[row + num].getKey()) : '0'}"></div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                     <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
                         <div class="row value">
                             <div class="col-xs-7 name">
-                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('UserName')}"></span>
+                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('Emp_Nm')}"></span>
                             </div>
                             <div class="col-xs-5 count">
                                 <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('Handled')}"></span>

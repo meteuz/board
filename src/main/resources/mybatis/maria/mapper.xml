@@ -16,7 +16,7 @@
     </select>
 
     <select id="getUserRealTime" parameterType="hashmap" resultType="hashmap">
-        CALL USP_Test_Board_UserRealTime_Grant(#{dept})
+        CALL USP_Test_Board_UserRealTime_State(#{dept})
     </select>
 
 </mapper>

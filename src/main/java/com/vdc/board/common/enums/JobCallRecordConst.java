@@ -1,5 +1,8 @@
 package com.vdc.board.common.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum JobCallRecordConst {
 
     TOTAL("전 체", "total"),

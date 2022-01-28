@@ -40,7 +40,11 @@
                              th:style="${'background-color: ' + season.getColor() + ';'}">총인입</div>
                     </div>
                     <div class="col-xs-3">
-                        <div class="value" th:text="${not #strings.isEmpty(queueRealTime.get(totalCallConst[row + num].getKey())) ? queueRealTime.get(totalCallConst[row + num].getKey()) : '0'}">0</div>
+                        <th:block th:switch="${totalCallConst[row + num].getKey()}">
+                            <div th:case="AnswerRate" class="value" th:id="${totalCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="AverageAnsweredWaitTime" class="value" th:id="${totalCallConst[row + num].getKey()}">00:00:00</div>
+                            <div th:case="*" class="value" th:id="${totalCallConst[row + num].getKey()}">0</div>
+                        </th:block>
                     </div>
                 </th:block>
             </div>
@@ -58,9 +62,42 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- 외부 script end -->
 
-    <!-- 내부 script start -->
-    <script>
+    <link th:replace="fragments/common-fragment.html :: context-path">
 
+    <!-- 내부 script start -->
+    <script type="text/javascript" th:inline="javascript">
+        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
+
+        let timeout = '';
+
+        /*<![CDATA[*/
+        let dept = /*[[ ${dept} ]]*/;
+        /*]]*/
+
+        (function poll() {
+            $.ajax({
+                url: CONTEXT_PATH + '/getTotalCall',
+                method: 'GET',
+                data : { "dept": dept },
+                cache: false,
+                dataType: 'json',
+                success: function(data) {
+                    for (const dataKey in data.data) {
+                        console.log(dataKey + ':' + data.data[dataKey]);
+                        $('#' + dataKey).text(data.data[dataKey]);
+                    }
+                },
+                timeout: 3000,
+                complete: timeout = setTimeout(function() {
+                    poll();
+                }, 5000)
+
+            })
+        })();
+
+        $(window).on('beforeunload', function() {
+            clearTimeout(timeout);
+        });
     </script>
     <!-- 내부 script end -->
 </body>

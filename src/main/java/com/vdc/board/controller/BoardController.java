@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -30,9 +31,6 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
 
-        model.addAttribute("currentDate", Utils.getCurrentDate());
-        model.addAttribute("currentTime", Utils.getCurrentTime());
-
         return "/board/current-date";
     }
 
@@ -40,6 +38,13 @@ public class BoardController {
     public String totalCall(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
+        model.addAttribute("dept", param.get("dept"));
+
+        return "/board/total-call";
+    }
+
+    @RequestMapping("getTotalCall")
+    public ModelAndView getTotalCall(@RequestParam Map<String, Object> param, ModelAndView mv) {
 
         Map<String, Object> queueRealTime = null;
 
@@ -61,15 +66,23 @@ public class BoardController {
             }
         }
 
-        model.addAttribute("queueRealTime", queueRealTime);
+        mv.setViewName("jsonView");
+        mv.addObject("data", queueRealTime);
 
-        return "/board/total-call";
+        return mv;
     }
 
     @RequestMapping("job-call")
     public String jobCall(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
+        model.addAttribute("dept", param.get("dept"));
+
+        return "/board/job-call";
+    }
+
+    @RequestMapping("getJobCall")
+    public ModelAndView getJobCall(@RequestParam Map<String, Object> param, ModelAndView mv) {
 
         List<Map<String, Object>> jobCallInfoList = null;
 
@@ -79,15 +92,24 @@ public class BoardController {
             jobCallInfoList = boardService.getQueueCumulativeRate(param);
         }
 
-        model.addAttribute("jobCallInfoList", jobCallInfoList);
+        mv.setViewName("jsonView");
+        mv.addObject("data", jobCallInfoList);
 
-        return "/board/job-call";
+        return mv;
     }
 
     @RequestMapping("team-call")
     public String teamCall(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
+        model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("deptNm", boardService.getDeptNm(param));
+
+        return "/board/team-call";
+    }
+
+    @RequestMapping("getTeamCall")
+    public ModelAndView getTeamCall(@RequestParam Map<String, Object> param, ModelAndView mv) {
 
         Map<String, Object> queueRealTime = null;
         List<Map<String, Object>> userRealTime = null;
@@ -108,10 +130,11 @@ public class BoardController {
             userRealTime = boardService.getUserRealTime(param);
         }
 
-        model.addAttribute("queueRealTime", queueRealTime);
-        model.addAttribute("userRealTime", userRealTime);
+        mv.setViewName("jsonView");
+        mv.addObject("data1", queueRealTime);
+        mv.addObject("data2", userRealTime);
 
-        return "/board/team-call";
+        return mv;
     }
 
     // PresenceState
@@ -124,6 +147,14 @@ public class BoardController {
     public String teamCounselor(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
+        model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("deptNm", boardService.getDeptNm(param));
+
+        return "/board/team-counselor";
+    }
+
+    @RequestMapping("getTeamCounselor")
+    public ModelAndView getTeamCounselor(@RequestParam Map<String, Object> param, ModelAndView mv) {
 
         Map<String, Object> queueRealTime = null;
         Map<String, Object> agentStatus = null;
@@ -148,11 +179,12 @@ public class BoardController {
             userRealTime = boardService.getUserRealTime(param);
         }
 
-        model.addAttribute("queueRealTime", queueRealTime);
-        model.addAttribute("agentStatus", agentStatus);
-        model.addAttribute("userRealTime", userRealTime);
+        mv.setViewName("jsonView");
+        mv.addObject("data1", queueRealTime);
+        mv.addObject("data2", agentStatus);
+        mv.addObject("data3", userRealTime);
 
-        return "/board/team-counselor";
+        return mv;
     }
 
     @RequestMapping("test-data")

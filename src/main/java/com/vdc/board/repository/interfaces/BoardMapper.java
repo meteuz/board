@@ -19,4 +19,7 @@ public interface BoardMapper {
 
     // getUserRealTime(개인별 상태)
     List<Map<String, Object>> getUserRealTime(Map<String, Object> map);
+
+    // dept name
+    Map<String, Object> getDeptNm(Map<String, Object> map);
 }

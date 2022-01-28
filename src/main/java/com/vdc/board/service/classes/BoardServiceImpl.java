@@ -75,4 +75,9 @@ public class BoardServiceImpl implements BoardService {
     public List<Map<String, Object>> getUserRealTime(Map<String, Object> map) {
         return boardMapper.getUserRealTime(map);
     }
+
+    @Override
+    public Map<String, Object> getDeptNm(Map<String, Object> map) {
+        return boardMapper.getDeptNm(map);
+    }
 }

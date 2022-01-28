@@ -150,7 +150,7 @@ public class MemoryBoardRepository implements BoardRepository {
 
         IntStream.range(0, nameArray.length).forEach(i -> {
             HashMap<String, Object> individualMap = new HashMap<>();
-            individualMap.put("UserName", nameArray[i]);
+            individualMap.put("Emp_Nm", nameArray[i]);
             individualMap.put("Handled", countArray[i]);
             individualPerformanceList.add(individualMap);
         });
@@ -183,7 +183,7 @@ public class MemoryBoardRepository implements BoardRepository {
         IntStream.range(0, nameArray.length).forEach(i -> {
             HashMap<String, Object> individualMap = new HashMap<>();
             individualMap.put("Emp_Nm", nameArray[i]);
-            individualMap.put("TimeInState", timeArray[i]);
+            individualMap.put("CurrentActTime", timeArray[i]);
             individualMap.put("State", stateArray[i]);
             individualStateList.add(individualMap);
         });

@@ -19,4 +19,8 @@
         CALL USP_Test_Board_UserRealTime_State(#{dept})
     </select>
 
+    <select id="getDeptNm" parameterType="hashmap" resultType="hashmap">
+        select Dept_Nm from dept where Dept_No = #{dept};
+    </select>
+
 </mapper>

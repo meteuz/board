@@ -27,7 +27,7 @@
 <body>
     <!-- header start -->
     <header id="title" th:style="${'background-image: url(../img/' + season + '.jpg);'}">
-        상담원 상태 현황(고객지원센터2팀)
+        <div th:text="'상담원 상태 현황(' + ${deptNm.get('Dept_Nm')} + ')'"></div>
     </header>
     <!-- header end -->
 
@@ -44,7 +44,9 @@
 
             <div class="row">
                 <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
-                    <div class="value" th:text="${not #strings.isEmpty(queueRealTime.get(value.getKey())) ? queueRealTime.get(value.getKey()) : '0'}"></div>
+                    <div class="value"
+                         th:id="${value.getKey()}"
+                         th:text="${(value.getKey() == 'AnswerRate' || value.getKey() == 'ServiceLevel') ? '0.00%' : '0'}"></div>
                 </div>
             </div>
 
@@ -59,7 +61,7 @@
             <div class="row">
                 <div class="col-xs-1"></div>
                 <div class="col-xs-2" th:each="key : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
-                    <div class="value" th:text="${not #strings.isEmpty(agentStatus.get(key.toString())) ? agentStatus.get(key.toString()) : '0'}"></div>
+                    <div class="value" th:id="${key}">0</div>
                 </div>
                 <div class="col-xs-1"></div>
             </div>
@@ -68,21 +70,17 @@
                 <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
                     <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
                         <div class="row value">
-                            <div class="col-xs-2 img" th:if="${userRealTime.size() > (row + num)}" th:with="state = ${T(com.vdc.board.common.enums.CounselorState).valueOf(userRealTime.get(row + num).get('State'))}">
+                            <div class="col-xs-2 img">
                                 <span class="fa-stack fa-lg">
-<!--                                    <i th:class="${'fas fa-square fa-stack-2x ' + stateColorMap.get(userRealTime.get(row + num).get('State'))}"></i>-->
-<!--                                    <i th:class="${'fal ' + stateIconMap.get(userRealTime.get(row + num).get('State')) + ' fa-stack-1x icon'}"-->
-<!--                                       th:classappend="${userRealTime.get(row + num).get('State') == 'off' ? 'text-danger' : 'text-white'}"></i>-->
-                                    <i th:class="${'fas fa-square fa-stack-2x ' + state.getColor()}"></i>
-                                    <i th:class="${'fal ' + state.getIcon() + ' fa-stack-1x icon'}"
-                                       th:classappend="${userRealTime.get(row + num).get('State') == 'off' ? 'text-danger' : 'text-white'}"></i>
+                                    <i th:id="${'color_' + (row + num)}"></i>
+                                    <i th:id="${'icon_' + (row + num)}"></i>
                                 </span>
                             </div>
-                            <div class="col-xs-5 name" th:if="${userRealTime.size() > (row + num)}">
-                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('Emp_Nm')}"></span>
+                            <div class="col-xs-5 name">
+                                <span th:id="${'Emp_Nm_' + (row + num)}"></span>
                             </div>
-                            <div class="col-xs-5 count" th:if="${userRealTime.size() > (row + num)}">
-                                <span th:if="${userRealTime.size() > (row + num)}" th:text="${userRealTime[row + num].get('CurrentActTime')}"></span>
+                            <div class="col-xs-5 count">
+                                <span th:id="${'CurrentActTime_' + (row + num)}"></span>
                             </div>
                         </div>
                     </div>
@@ -102,9 +100,100 @@
     <script th:src="@{/js/bootstrap.min.js}"></script>
     <!-- 외부 script end -->
 
-    <!-- 내부 script start -->
-    <script>
+    <link th:replace="fragments/common-fragment.html :: context-path">
 
+    <!-- 내부 script start -->
+    <script type="text/javascript" th:inline="javascript">
+        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
+
+        let timeout = '';
+        const stateColorClassCommon = 'fas fa-square fa-stack-2x';
+        const stateIconClassCommon = 'fal fa-stack-1x icon text-white';
+
+        /*<![CDATA[*/
+        let dept = /*[[ ${dept} ]]*/;
+        /*]]*/
+
+        (function poll() {
+            $.ajax({
+                url: '/getTeamCounselor',
+                method: 'GET',
+                data : { "dept": dept },
+                cache: false,
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+
+                    for (const key in data.data1) {
+                        console.log(key + ':' + data.data1[key]);
+                        $('#' + key).text(data.data1[key]);
+                    }
+
+                    for (const key in data.data2) {
+                        console.log(key + ':' + data.data2[key]);
+                        $('#' + key).text(data.data2[key]);
+                    }
+
+                    let num = 0;
+                    data.data3.forEach(element => {
+                        for (const elementKey in element) {
+                            console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                            $('#' + elementKey + '_' + num).text(element[elementKey]);
+                            if (elementKey == 'State') {
+                                switch (element[elementKey]) {
+                                    case 'INIT':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_init`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-keyboard`);
+                                        break;
+                                    case 'MEAL':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_meal`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-utensils`);
+                                        break;
+                                    case 'REST':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_rest`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-mug-hot`);
+                                        break;
+                                    case 'EDUCATION':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_education`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-chalkboard-teacher`);
+                                        break;
+                                    case 'WORK':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_work`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-phone-rotary`);
+                                        break;
+                                    case 'CALLING':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_calling`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-phone-volume`);
+                                        break;
+                                    case 'OFF':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_off`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} text-danger fa-user-slash`);
+                                        break;
+                                    case 'HANDLING':
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_handling`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-pencil-alt`);
+                                        break;
+                                    default :
+                                        $('#color_' + num).addClass(`${stateColorClassCommon} icon_etc`);
+                                        $('#icon_' + num).addClass(`${stateIconClassCommon} fa-grip-horizontal`);
+                                        break;
+                                }
+                            }
+                        }
+                        num++;
+                    });
+                },
+                timeout: 3000,
+                complete: timeout = setTimeout(function() {
+                    poll();
+                }, 5000)
+
+            })
+        })();
+
+        $(window).on('beforeunload', function() {
+            clearTimeout(timeout);
+        });
     </script>
     <!-- 내부 script end -->
 </body>

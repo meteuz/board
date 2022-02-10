@@ -20,46 +20,6 @@
     <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/current-date.css}">
 
-    <script>
-
-    </script>
-</head>
-
-<body>
-    <!-- header start -->
-    <header th:style="${'background-image: url(../img/' + season + '.jpg);'}">
-        <!--        <h1 id="title"></h1>-->
-    </header>
-    <!-- header end -->
-
-    <!-- section start -->
-    <section th:class="${season}">
-        <div class="contents first_page container-fluid" style="height: 100%">
-            <div class="date">
-                <div class="row r1">
-                    <div class="col-xs-12 current_date" id="currentDate"></div>
-                </div>
-
-                <div class="row r2">
-                    <div class="col-xs-12 current_time" id="currentTime"></div>
-                </div>
-
-                <h1 class="h1-clock"></h1>
-            </div>
-
-            <div class="row footer">
-                <img src="img/ci_type_jpg02.jpg" height="50px">
-            </div>
-        </div>
-    </section>
-    <!-- section end -->
-
-    <!-- footer start -->
-    <footer>
-<!--        <img src="img/ci_type_jpg02.jpg" height="50px">-->
-    </footer>
-    <!-- footer end -->
-
     <!-- 외부 script start -->
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
@@ -67,7 +27,6 @@
 
     <link th:replace="fragments/common-fragment.html :: context-path">
 
-    <!-- 내부 script start -->
     <script type="text/javascript" th:inline="javascript">
         const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
 
@@ -112,9 +71,44 @@
             });
 
         });
-
     </script>
-    <!-- 내부 script end -->
+</head>
+
+<body>
+    <!-- header start -->
+    <header th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
+        <!--        <h1 id="title"></h1>-->
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section th:class="${season}">
+        <div class="contents first_page container-fluid" style="height: 100%">
+            <div class="date">
+                <div class="row r1">
+                    <div class="col-xs-12 current_date" id="currentDate"></div>
+                </div>
+
+                <div class="row r2">
+                    <div class="col-xs-12 current_time" id="currentTime"></div>
+                </div>
+
+                <h1 class="h1-clock"></h1>
+            </div>
+
+            <div class="row footer">
+                <img src="img/ci_type_jpg02.jpg" height="50px">
+            </div>
+        </div>
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer>
+<!--        <img src="img/ci_type_jpg02.jpg" height="50px">-->
+    </footer>
+    <!-- footer end -->
+
 </body>
 
 </html>

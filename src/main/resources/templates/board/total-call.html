@@ -19,43 +19,6 @@
     <!-- 내부 css -->
     <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/total-call.css}">
-    
-</head>
-
-<body>
-    <!-- header start -->
-    <header id="title" th:style="${'background-image: url(../img/' + season + '.jpg);'}">
-        전체 콜 운영 현황
-    </header>
-    <!-- header end -->
-
-    <!-- section start -->
-    <section th:class="${season}">
-        <div class="contents container-fluid">
-            <div class="row r1" th:each="row : ${#numbers.sequence(0,6,2)}" th:with="totalCallConst = ${T(com.vdc.board.common.enums.TotalCallConst).values()}">
-                <th:block th:each="num : ${#numbers.sequence(0,1)}">
-                    <div class="col-xs-3">
-                        <div th:class="${'subject w' + totalCallConst[row + num].getTitle().replace(' ', '').length()}"
-                             th:text="${totalCallConst[row + num].getTitle()}"
-                             th:style="${'background-color: ' + season.getColor() + ';'}">총인입</div>
-                    </div>
-                    <div class="col-xs-3">
-                        <th:block th:switch="${totalCallConst[row + num].getKey()}">
-                            <div th:case="AnswerRate" class="value" th:id="${totalCallConst[row + num].getKey()}">0.00%</div>
-                            <div th:case="AverageAnsweredWaitTime" class="value" th:id="${totalCallConst[row + num].getKey()}">00:00:00</div>
-                            <div th:case="*" class="value" th:id="${totalCallConst[row + num].getKey()}">0</div>
-                        </th:block>
-                    </div>
-                </th:block>
-            </div>
-        </div>
-
-    </section>
-    <!-- section end -->
-
-    <!-- footer start -->
-    <footer></footer>
-    <!-- footer end -->
 
     <!-- 외부 script start -->
     <script th:src="@{/js/jquery.min.js}"></script>
@@ -100,6 +63,44 @@
         });
     </script>
     <!-- 내부 script end -->
+    
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title" th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
+        전체 콜 운영 현황
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section th:class="${season}">
+        <div class="contents container-fluid">
+            <div class="row r1" th:each="row : ${#numbers.sequence(0,6,2)}" th:with="totalCallConst = ${T(com.vdc.board.common.enums.TotalCallConst).values()}">
+                <th:block th:each="num : ${#numbers.sequence(0,1)}">
+                    <div class="col-xs-3">
+                        <div th:class="${'subject w' + totalCallConst[row + num].getTitle().replace(' ', '').length()}"
+                             th:text="${totalCallConst[row + num].getTitle()}"
+                             th:style="${'background-color: ' + season.getColor() + ';'}">총인입</div>
+                    </div>
+                    <div class="col-xs-3">
+                        <th:block th:switch="${totalCallConst[row + num].getKey()}">
+                            <div th:case="AnswerRate" class="value" th:id="${totalCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="AverageAnsweredWaitTime" class="value" th:id="${totalCallConst[row + num].getKey()}">00:00:00</div>
+                            <div th:case="*" class="value" th:id="${totalCallConst[row + num].getKey()}">0</div>
+                        </th:block>
+                    </div>
+                </th:block>
+            </div>
+        </div>
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
 </body>
 
 </html>

@@ -22,79 +22,6 @@
     <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/team-counselor.css}">
 
-</head>
-
-<body>
-    <!-- header start -->
-    <header id="title" th:style="${'background-image: url(../img/' + season + '.jpg);'}">
-        <div th:text="'상담원 상태 현황(' + ${deptNm.get('Dept_Nm')} + ')'"></div>
-    </header>
-    <!-- header end -->
-
-    <!-- section start -->
-    <section th:class="${season}">
-        <div class="contents container-fluid">
-            <div class="row">
-                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
-                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length()}"
-                         th:text="${value.getTitle()}"
-                         th:style="${'background-color: ' + season.getColor() + ';'}"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
-                    <div class="value"
-                         th:id="${value.getKey()}"
-                         th:text="${(value.getKey() == 'AnswerRate' || value.getKey() == 'ServiceLevel') ? '0.00%' : '0'}"></div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
-                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length() + ' sub' + valueStat.count}" th:text="${value.getTitle()}"></div>
-                </div>
-                <div class="col-xs-1"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-xs-1"></div>
-                <div class="col-xs-2" th:each="key : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
-                    <div class="value" th:id="${key}">0</div>
-                </div>
-                <div class="col-xs-1"></div>
-            </div>
-
-            <div class="under_box">
-                <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
-                    <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
-                        <div class="row value">
-                            <div class="col-xs-2 img">
-                                <span class="fa-stack fa-lg">
-                                    <i th:id="${'color_' + (row + num)}"></i>
-                                    <i th:id="${'icon_' + (row + num)}"></i>
-                                </span>
-                            </div>
-                            <div class="col-xs-5 name">
-                                <span th:id="${'Emp_Nm_' + (row + num)}"></span>
-                            </div>
-                            <div class="col-xs-5 count">
-                                <span th:id="${'CurrentActTime_' + (row + num)}"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-    <!-- section end -->
-
-    <!-- footer start -->
-    <footer></footer>
-    <!-- footer end -->
-
     <!-- 외부 script start -->
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
@@ -116,7 +43,7 @@
 
         (function poll() {
             $.ajax({
-                url: '/getTeamCounselor',
+                url: CONTEXT_PATH + '/getTeamCounselor',
                 method: 'GET',
                 data : { "dept": dept },
                 cache: false,
@@ -196,6 +123,80 @@
         });
     </script>
     <!-- 내부 script end -->
+
+</head>
+
+<body>
+    <!-- header start -->
+    <header id="title" th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
+        <div th:text="'상담원 상태 현황(' + ${deptNm.get('Dept_Nm')} + ')'"></div>
+    </header>
+    <!-- header end -->
+
+    <!-- section start -->
+    <section th:class="${season}">
+        <div class="contents container-fluid">
+            <div class="row">
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
+                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length()}"
+                         th:text="${value.getTitle()}"
+                         th:style="${'background-color: ' + season.getColor() + ';'}"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorFirstConst).values()}">
+                    <div class="value"
+                         th:id="${value.getKey()}"
+                         th:text="${(value.getKey() == 'AnswerRate' || value.getKey() == 'ServiceLevel') ? '0.00%' : '0'}"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-2" th:each="value : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
+                    <div th:class="${'subject w' + value.getTitle().replace(' ', '').length() + ' sub' + valueStat.count}" th:text="${value.getTitle()}"></div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-2" th:each="key : ${T(com.vdc.board.common.enums.TeamCounselorSecondConst).values()}">
+                    <div class="value" th:id="${key}">0</div>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="under_box">
+                <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
+                    <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
+                        <div class="row value">
+                            <div class="col-xs-2 img">
+                                <span class="fa-stack fa-lg">
+                                    <i th:id="${'color_' + (row + num)}"></i>
+                                    <i th:id="${'icon_' + (row + num)}"></i>
+                                </span>
+                            </div>
+                            <div class="col-xs-5 name">
+                                <span th:id="${'Emp_Nm_' + (row + num)}"></span>
+                            </div>
+                            <div class="col-xs-5 count">
+                                <span th:id="${'CurrentActTime_' + (row + num)}"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- section end -->
+
+    <!-- footer start -->
+    <footer></footer>
+    <!-- footer end -->
+
 </body>
 
 </html>

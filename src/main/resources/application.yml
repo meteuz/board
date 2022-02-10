@@ -1,14 +1,17 @@
 server:
-  port: 8090
+  port: 8080
 
 # database 설정
 spring:
   datasource:
     hikari:
       driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-      jdbc-url: jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
-      username: vdc
+      jdbc-url: jdbc:log4jdbc:mariadb://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      username: ims
       password: vdc7200#
+      #jdbc:log4jdbc:mariadb://192.168.19.61:3306/ims?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      #jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      #jdbc:log4jdbc:mariadb://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
       #connection-test-query: SELECT NOW()
 ---
 # devtools
@@ -30,7 +33,7 @@ spring:
 logging:
   config:
     level: INFO
-    path: /logs/ #/logs
+    path: /logs #opt/tomcat/latest/logs
     filename: board
     errfilename: error_board
 

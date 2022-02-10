@@ -19,7 +19,7 @@ public enum CounselorState {
     CALLING("calling", "icon_calling", "fa-phone-volume"),              // 통화중
     OFF("off", "icon_off", "fa-user-slash"),                            // 로그오프
     HANDLING("handling", "icon_handling", "fa-pencil-alt"),             // 후처리
-    ETC("etc", "icon_etc", "fa-grip-horizontal");
+    ETC("etc", "icon_etc", "fa-grip-horizontal");                       // 기타
 
     private final String state;
     private final String color;

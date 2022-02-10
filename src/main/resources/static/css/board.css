@@ -19,7 +19,7 @@ header {
     height: 20vh;
     margin: 0px;
     padding: 0px;
-    background-image: url(../img/winter5.jpg);
+    background-image: url(../img/winter.jpg);
     background-size: cover;
     align-items: center;
     justify-content: center;
@@ -190,12 +190,12 @@ section {
 }
 .w5 {
     text-indent: -1rem;
-    letter-spacing: -0.5rem;
+    letter-spacing: -0.3rem;
 }
 .w6 {
     text-indent: -1rem;
 /*    letter-spacing: -0.9rem;*/
-    letter-spacing: -0.6rem;
+    letter-spacing: -0.5rem;
 /*    font-size: 40px;*/
 }
 

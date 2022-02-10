@@ -19,12 +19,62 @@
     <!-- 내부 css -->
     <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/job-call.css}">
+
+    <!-- 외부 script start -->
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <!-- 외부 script end -->
+
+    <link th:replace="fragments/common-fragment.html :: context-path">
+
+    <!-- 내부 script start -->
+    <script type="text/javascript" th:inline="javascript">
+        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
+
+        let timeout = '';
+
+        /*<![CDATA[*/
+        let dept = /*[[ ${dept} ]]*/;
+        /*]]*/
+
+        (function poll() {
+            $.ajax({
+                url: CONTEXT_PATH + '/getJobCall',
+                method: 'GET',
+                data : { "dept": dept },
+                cache: false,
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                    let num = 0;
+                    data.data.forEach(element => {
+                        for (const elementKey in element) {
+                            console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                            $('#' + elementKey + '_' + num).text(element[elementKey]);
+                        }
+                        num++;
+                    });
+                },
+                timeout: 3000,
+                complete: timeout = setTimeout(function() {
+                    poll();
+                }, 5000)
+
+            })
+        })();
+
+        $(window).on('beforeunload', function() {
+            clearTimeout(timeout);
+        });
+
+    </script>
+    <!-- 내부 script end -->
     
 </head>
 
 <body>
     <!-- header start -->
-    <header id="title" th:style="${'background-image: url(../img/' + season + '.jpg);'}">
+    <header id="title" th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
         업무별 콜 응대 현황
     </header>
     <!-- header end -->
@@ -66,56 +116,6 @@
     <!-- footer start -->
     <footer></footer>
     <!-- footer end -->
-
-    <!-- 외부 script start -->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <!-- 외부 script end -->
-
-    <link th:replace="fragments/common-fragment.html :: context-path">
-
-    <!-- 내부 script start -->
-    <script type="text/javascript" th:inline="javascript">
-        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
-
-        let timeout = '';
-
-        /*<![CDATA[*/
-        let dept = /*[[ ${dept} ]]*/;
-        /*]]*/
-
-        (function poll() {
-            $.ajax({
-                url: '/getJobCall',
-                method: 'GET',
-                data : { "dept": dept },
-                cache: false,
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    let num = 0;
-                    data.data.forEach(element => {
-                        for (const elementKey in element) {
-                            console.log(elementKey + '_' + num + ':' + element[elementKey]);
-                            $('#' + elementKey + '_' + num).text(element[elementKey]);
-                        }
-                        num++;
-                    });
-                },
-                timeout: 3000,
-                complete: timeout = setTimeout(function() {
-                    poll();
-                }, 5000)
-
-            })
-        })();
-
-        $(window).on('beforeunload', function() {
-            clearTimeout(timeout);
-        });
-
-    </script>
-    <!-- 내부 script end -->
 </body>
 
 </html>

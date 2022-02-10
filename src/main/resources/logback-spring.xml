@@ -91,7 +91,7 @@
     </root>
 
 
-    <logger name="com.vdc.ohim" level="DEBUG" additivity="false">
+    <logger name="com.vdc.board" level="DEBUG" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
         <appender-ref ref="Error"/>
@@ -111,8 +111,6 @@
     <!-- SQL 문만을 로그로 남기며, PreparedStatement 일 경우 관련된 argument 값으로 대체된 SQL 문이 보여진다. -->
     <logger name="jdbc.sqlonly" level="DEBUG"/>
     <!-- SQL 결과 조회된 데이터의 table 을 로그로 남긴다. -->
-    <logger name="jdbc.resultsettable" level="INFO"/>
-
-
+    <logger name="jdbc.resultsettable" level="OFF"/>
 
 </configuration>

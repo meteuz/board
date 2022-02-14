@@ -1,28 +1,28 @@
-DEBUG 2021-12-20 15:40:38.185 [File Watcher] [Restarter:249] - Restarting application
-DEBUG 2021-12-20 15:40:38.186 [Thread-10] [Restarter:305] - Stopping application
-DEBUG 2021-12-20 15:40:38.188 [Thread-10] [ApplicationAvailabilityBean:77] - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
-DEBUG 2021-12-20 15:40:38.188 [Thread-10] [AnnotationConfigServletWebServerApplicationContext:1049] - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@55b613f8, started on Mon Dec 20 15:40:17 KST 2021
-DEBUG 2021-12-20 15:40:38.188 [Thread-10] [ConfigurationPropertySourcesPropertyResolver$DefaultResolver:115] - Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
-DEBUG 2021-12-20 15:40:38.193 [Thread-10] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483647
-DEBUG 2021-12-20 15:40:38.195 [Thread-10] [DefaultLifecycleProcessor:238] - Bean 'webServerGracefulShutdown' completed its stop procedure
-DEBUG 2021-12-20 15:40:38.195 [Thread-10] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483646
-DEBUG 2021-12-20 15:40:39.581 [Thread-10] [DefaultLifecycleProcessor:238] - Bean 'webServerStartStop' completed its stop procedure
-DEBUG 2021-12-20 15:40:39.582 [Thread-10] [AnnotationMBeanExporter:452] - Unregistering JMX-exposed beans on shutdown
-DEBUG 2021-12-20 15:40:39.583 [Thread-10] [AnnotationMBeanExporter:186] - Unregistering JMX-exposed beans
-DEBUG 2021-12-20 15:40:39.584 [Thread-10] [ThreadPoolTaskExecutor:218] - Shutting down ExecutorService 'applicationTaskExecutor'
-INFO  2021-12-20 15:40:39.584 [Thread-10] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
-DEBUG 2021-12-20 15:40:39.584 [Thread-10] [HikariPool:421] - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
-DEBUG 2021-12-20 15:40:39.586 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@51c63ed9: (connection evicted)
-DEBUG 2021-12-20 15:40:39.590 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1d56dd07: (connection evicted)
-DEBUG 2021-12-20 15:40:39.591 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7a5d255f: (connection evicted)
-DEBUG 2021-12-20 15:40:39.591 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@45321987: (connection evicted)
-DEBUG 2021-12-20 15:40:39.592 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@7a2de1b9: (connection evicted)
-DEBUG 2021-12-20 15:40:39.592 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@5138a51e: (connection evicted)
-DEBUG 2021-12-20 15:40:39.593 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@425c05bb: (connection evicted)
-DEBUG 2021-12-20 15:40:39.593 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1777d256: (connection evicted)
-DEBUG 2021-12-20 15:40:39.594 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@2c2c928: (connection evicted)
-DEBUG 2021-12-20 15:40:39.594 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@16468c3b: (connection evicted)
-DEBUG 2021-12-20 15:40:39.595 [Thread-10] [HikariPool:421] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
-INFO  2021-12-20 15:40:39.596 [Thread-10] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
-DEBUG 2021-12-20 15:40:39.724 [Thread-10] [RestartClassLoader:85] - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@100fa854
-DEBUG 2021-12-20 15:40:39.725 [Thread-10] [Restarter:281] - Starting application com.vdc.board.BoardApplication with URLs [file:/D:/IntelliJ_workspaces/board/out/production/classes/, file:/D:/IntelliJ_workspaces/board/out/production/resources/]
+DEBUG 2022-02-14 10:15:04.704 [File Watcher] [Restarter:249] - Restarting application
+DEBUG 2022-02-14 10:15:04.707 [Thread-9] [Restarter:305] - Stopping application
+DEBUG 2022-02-14 10:15:04.709 [Thread-9] [ApplicationAvailabilityBean:77] - Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+DEBUG 2022-02-14 10:15:04.710 [Thread-9] [AnnotationConfigServletWebServerApplicationContext:1049] - Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@7a0fdfc7, started on Mon Feb 14 10:07:43 KST 2022
+DEBUG 2022-02-14 10:15:04.710 [Thread-9] [ConfigurationPropertySourcesPropertyResolver$DefaultResolver:115] - Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
+DEBUG 2022-02-14 10:15:04.712 [Thread-9] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483647
+DEBUG 2022-02-14 10:15:04.714 [Thread-9] [DefaultLifecycleProcessor:238] - Bean 'webServerGracefulShutdown' completed its stop procedure
+DEBUG 2022-02-14 10:15:04.714 [Thread-9] [DefaultLifecycleProcessor:365] - Stopping beans in phase 2147483646
+DEBUG 2022-02-14 10:15:06.486 [Thread-9] [DefaultLifecycleProcessor:238] - Bean 'webServerStartStop' completed its stop procedure
+DEBUG 2022-02-14 10:15:06.487 [Thread-9] [AnnotationMBeanExporter:452] - Unregistering JMX-exposed beans on shutdown
+DEBUG 2022-02-14 10:15:06.488 [Thread-9] [AnnotationMBeanExporter:186] - Unregistering JMX-exposed beans
+DEBUG 2022-02-14 10:15:06.488 [Thread-9] [ThreadPoolTaskExecutor:218] - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  2022-02-14 10:15:06.488 [Thread-9] [HikariDataSource:350] - HikariPool-1 - Shutdown initiated...
+DEBUG 2022-02-14 10:15:06.489 [Thread-9] [HikariPool:421] - HikariPool-1 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+DEBUG 2022-02-14 10:15:06.490 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@36edf7de: (connection evicted)
+DEBUG 2022-02-14 10:15:06.493 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@48a49c54: (connection evicted)
+DEBUG 2022-02-14 10:15:06.496 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@58448902: (connection evicted)
+DEBUG 2022-02-14 10:15:06.498 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1938fa07: (connection evicted)
+DEBUG 2022-02-14 10:15:06.501 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@531a4745: (connection evicted)
+DEBUG 2022-02-14 10:15:06.504 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3f30374e: (connection evicted)
+DEBUG 2022-02-14 10:15:06.506 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@4340a533: (connection evicted)
+DEBUG 2022-02-14 10:15:06.509 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1d76879e: (connection evicted)
+DEBUG 2022-02-14 10:15:06.512 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cd7db1a: (connection evicted)
+DEBUG 2022-02-14 10:15:06.514 [HikariPool-1 connection closer] [PoolBase:134] - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@22e31589: (connection evicted)
+DEBUG 2022-02-14 10:15:06.517 [Thread-9] [HikariPool:421] - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  2022-02-14 10:15:06.517 [Thread-9] [HikariDataSource:352] - HikariPool-1 - Shutdown completed.
+DEBUG 2022-02-14 10:15:06.653 [Thread-9] [RestartClassLoader:85] - Created RestartClassLoader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@38ffd79a
+DEBUG 2022-02-14 10:15:06.653 [Thread-9] [Restarter:281] - Starting application com.vdc.board.BoardApplication with URLs [file:/D:/IntelliJ_workspaces/board/out/production/classes/, file:/D:/IntelliJ_workspaces/board/out/production/resources/]

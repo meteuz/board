@@ -23,6 +23,7 @@
     <!-- 외부 script start -->
     <script th:src="@{/js/jquery.min.js}"></script>
     <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/common_board.js}"></script>
     <!-- 외부 script end -->
 
     <link th:replace="fragments/common-fragment.html :: context-path">
@@ -31,40 +32,37 @@
     <script type="text/javascript" th:inline="javascript">
         const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
 
-        let timeout = '';
-
         /*<![CDATA[*/
         let dept = /*[[ ${dept} ]]*/;
         /*]]*/
 
-        (function poll() {
-            $.ajax({
-                url: CONTEXT_PATH + '/getJobCall',
-                method: 'GET',
-                data : { "dept": dept },
-                cache: false,
-                dataType: 'json',
-                success: function(data) {
-                    console.log(data);
-                    let num = 0;
-                    data.data.forEach(element => {
-                        for (const elementKey in element) {
-                            console.log(elementKey + '_' + num + ':' + element[elementKey]);
-                            $('#' + elementKey + '_' + num).text(element[elementKey]);
-                        }
-                        num++;
-                    });
-                },
-                timeout: 3000,
-                complete: timeout = setTimeout(function() {
-                    poll();
-                }, 5000)
+        $(function () {
+            (function poll() {
+                $.ajax({
+                    url: CONTEXT_PATH + '/getJobCall',
+                    method: 'GET',
+                    data : { "dept": dept },
+                    cache: false,
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data);
+                        let num = 0;
+                        data.data.forEach(element => {
+                            for (const elementKey in element) {
+                                console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                                $('#' + elementKey + '_' + num).text(element[elementKey]);
+                            }
+                            num++;
+                        });
+                    },
+                    timeout: 3000,
+                    complete: timeout = setTimeout(function() {
+                        poll();
+                    }, 5000)
 
-            })
-        })();
+                })
+            })();
 
-        $(window).on('beforeunload', function() {
-            clearTimeout(timeout);
         });
 
     </script>
@@ -114,7 +112,11 @@
     <!-- section end -->
 
     <!-- footer start -->
-    <footer></footer>
+    <footer th:class="${season} + '-time'">
+        <div class="date">
+            <div class="col-xs-12 current_date"><span id="currentDate"></span></div>
+        </div>
+    </footer>
     <!-- footer end -->
 </body>
 

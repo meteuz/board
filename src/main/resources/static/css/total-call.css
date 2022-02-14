@@ -1,5 +1,5 @@
 section {
-    height: 80vh;
+    height: 70vh;
 }
 
 .subject {
@@ -25,12 +25,12 @@ section {
 
 @media (min-width: 1280px) {
     header {
-        height: 25vh;
+        height: 20vh;
         font-size: 75px;
     }
 
     section {
-        height: 75vh;
+        height: 70vh;
     }
 
     .subject {

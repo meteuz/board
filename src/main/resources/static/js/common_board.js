@@ -3,6 +3,8 @@ const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
 let timeout = '';
 let timeVal = '';
 
+const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
+
 function getTime(){
     const currentDate = new Date();
 
@@ -37,7 +39,7 @@ $(function () {
 
     $(window).on('beforeunload', function() {
         clearTimeout(timeout);
-        clearTimeout(timeVal);
+        clearInterval(timeVal);
     });
 
     getTime();

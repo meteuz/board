@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<header th:fragment="headerFragment(param1)" th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
+    <div th:text="${param1}"></div>
+</header>
+
+</html>

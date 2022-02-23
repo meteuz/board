@@ -1,7 +1,6 @@
 package com.vdc.board.controller;
 
 import com.vdc.board.common.enums.*;
-import com.vdc.board.common.util.Utils;
 import com.vdc.board.service.interfaces.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -17,7 +16,7 @@ import java.util.Map;
 @Controller
 public class BoardController {
 
-    private static final boolean IS_TEST = false;
+    private static final boolean IS_TEST = true;
 
     private final BoardService boardService;
 
@@ -25,6 +24,8 @@ public class BoardController {
     // QueueRealTime(대기호, 평균대기시간, 서비스레벨)
     // QueueCumulative_Rate(인입, 응대, 포기, 응대율, 서비스레벨) - 15분마다 레코드 추가
     // getUserRealTime(개인별 상태)
+
+    // /total-call?dept=1&season=1&wc=50&ar=50
 
     @RequestMapping("current-date")
     public String currentDate(@RequestParam Map<String, Object> param, Model model) {
@@ -39,6 +40,9 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
         model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("wc", param.get("wc"));
+        model.addAttribute("ar", param.get("ar"));
+        model.addAttribute("title", Title.values()[0].getTitleStr());
 
         return "/board/total-call";
     }
@@ -77,6 +81,9 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
         model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("wc", param.get("wc"));
+        model.addAttribute("ar", param.get("ar"));
+        model.addAttribute("title", Title.values()[1].getTitleStr());
 
         return "/board/job-call";
     }
@@ -103,7 +110,10 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
         model.addAttribute("dept", param.get("dept"));
-        model.addAttribute("deptNm", boardService.getDeptNm(param));
+        model.addAttribute("wc", param.get("wc"));
+        model.addAttribute("ar", param.get("ar"));
+//        model.addAttribute("deptNm", boardService.getDeptNm(param));
+        model.addAttribute("title", Title.values()[2].getTitleStr() + "(" + boardService.getDeptNm(param).get("Dept_Nm") + ")");
 
         return "/board/team-call";
     }
@@ -148,7 +158,10 @@ public class BoardController {
 
         model.addAttribute("season", getSeason(param.get("season")));
         model.addAttribute("dept", param.get("dept"));
-        model.addAttribute("deptNm", boardService.getDeptNm(param));
+        model.addAttribute("wc", param.get("wc"));
+        model.addAttribute("ar", param.get("ar"));
+//        model.addAttribute("deptNm", boardService.getDeptNm(param));
+        model.addAttribute("title", Title.values()[3].getTitleStr() + "(" + boardService.getDeptNm(param).get("Dept_Nm") + ")");
 
         return "/board/team-counselor";
     }

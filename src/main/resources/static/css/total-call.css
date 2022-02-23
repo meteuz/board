@@ -23,30 +23,114 @@ section {
     margin-bottom: 15px;
 }
 
-@media (min-width: 1280px) {
+@media screen and (max-width: 1024px) {
     header {
-        height: 20vh;
-        font-size: 75px;
+        height: 18vh;
+        font-size: 7.0rem;
     }
 
     section {
-        height: 70vh;
+        height: 72vh;
     }
 
     .subject {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 9rem;
-        font-size: 5rem;
+        height: 7.5rem;
+        font-size: 4.2rem;
     }
 
     .value {
-        display: flex;
-        padding: 0px;
-        height: 9rem;
-        font-size: 5.5rem;
-        align-items: center;
-        justify-content: center;
+        height: 7.5rem;
+        font-size: 5.0rem;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+    .count {
+        font-size: 2.2rem;
     }
 }
+
+@media screen and (min-width: 1025px) and (max-width: 1152px) {
+    header {
+        height: 18vh;
+        font-size: 7.0rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 8.0rem;
+        font-size: 4.5rem;
+    }
+
+    .value {
+        height: 8.0rem;
+        font-size: 5.3rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    header {
+        height: 18vh;
+        font-size: 7.0rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 8.0rem;
+        font-size: 4.5rem;
+    }
+
+    .value {
+        height: 8.0rem;
+        font-size: 5.3rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+}
+
+/*@media (min-width: 1280px) {*/
+/*    header {*/
+/*        height: 20vh;*/
+/*        font-size: 75px;*/
+/*    }*/
+
+/*    section {*/
+/*        height: 70vh;*/
+/*    }*/
+
+/*    .subject {*/
+/*        display: flex;*/
+/*        align-items: center;*/
+/*        justify-content: center;*/
+/*        height: 9rem;*/
+/*        font-size: 5rem;*/
+/*    }*/
+
+/*    .value {*/
+/*        display: flex;*/
+/*        padding: 0px;*/
+/*        height: 9rem;*/
+/*        font-size: 5.5rem;*/
+/*        align-items: center;*/
+/*        justify-content: center;*/
+/*    }*/
+/*}*/

@@ -288,6 +288,10 @@ footer {
     font-weight: bold;
 }
 
+.threshold {
+    background-color: magenta;
+}
+
 @media (min-width: 1280px) {
     header {
         height: 25vh;

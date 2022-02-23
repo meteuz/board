@@ -1,39 +1,69 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 
-<head>
-    <!-- meta tag start -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width" initial-scale="1">
-    <!-- meta tag end -->
-
-    <!-- title -->
-    <title>Home</title>
-
-    <!-- 외부 css start -->
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
-    <!-- 외부 css end -->
-
-    <!-- 내부 css -->
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+<th:block layout:fragment="css">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/team-call.css}">
+</th:block>
 
-    <!-- 외부 script start -->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <script th:src="@{/js/common_board.js}"></script>
-    <!-- 외부 script end -->
+<!-- section start -->
+<section layout:fragment="content" th:class="${season}">
+    <div class="contents container-fluid" th:with="teamCallConst = ${T(com.vdc.board.common.enums.TeamCallConst).values()}">
+        <div class="row" th:each="row : ${#numbers.sequence(0,4,2)}">
+            <div class="col-xs-6 bundle" th:each="num : ${#numbers.sequence(0,1)}">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div th:class="${'subject w' + teamCallConst[row + num].getTitle().replace(' ', '').length()}"
+                             th:text="${teamCallConst[row + num].getTitle()}"
+                             th:style="${'background-color: ' + season.getColor() + ';'}"></div>
+                    </div>
+                    <div class="col-xs-7">
+                        <th:block th:switch="${teamCallConst[row + num].getKey()}">
+                            <div th:case="AnswerRate" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="ServiceLevel" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="*" class="value" th:id="${teamCallConst[row + num].getKey()}">0</div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <link th:replace="fragments/common-fragment.html :: context-path">
+        <div class="under_box">
+            <div class="under_title">
+                <span id="dot">●</span> 개인별 실적 [응대호기준]<span id="last_words">기준</span>
+            </div>
 
-    <!-- 내부 script start -->
+            <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
+                <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
+                    <div class="row value">
+                        <div class="col-xs-7 name">
+                            <span th:id="${'Emp_Nm_' + (row + num)}"></span>
+                        </div>
+                        <div class="col-xs-5 count">
+                            <span th:id="${'Handled_' + (row + num)}"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+<th:block layout:fragment="script">
     <script type="text/javascript" th:inline="javascript">
-        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
 
         /*<![CDATA[*/
         let dept = /*[[ ${dept} ]]*/;
+        /*]]*/
+
+        /*<![CDATA[*/
+        let wc = /*[[ ${wc} ]]*/;
+        /*]]*/
+
+        /*<![CDATA[*/
+        let ar = /*[[ ${ar} ]]*/;
         /*]]*/
 
         $(function () {
@@ -48,7 +78,26 @@
                         console.log(data);
 
                         for (const key in data.data1) {
-                            console.log(key + ':' + data.data1[key]);
+                            // console.log(key + ':' + data.data1[key]);
+
+                            // AnswerRate:36.1% | WaitCalls:27
+                            if (key == 'WaitCalls' || key == 'AnswerRate') {
+                                $('#' + key).removeClass('threshold');
+
+                                if (key == 'AnswerRate') {
+                                    const ar_value = data.data1[key].split('.');
+                                    if (ar > Number(ar_value[0])) {
+                                        $('#' + key).addClass('threshold');
+                                    }
+                                    console.log(`ar = ${ar} | ${data.data1[key]}`);
+                                } else {
+                                    if (wc < Number(data.data1[key])) {
+                                        $('#' + key).addClass('threshold');
+                                    }
+                                    console.log(`wc = ${wc} | ${data.data1[key]}`);
+                                }
+                            }
+
                             $('#' + key).text(data.data1[key]);
                         }
 
@@ -71,71 +120,6 @@
         });
 
     </script>
-    <!-- 내부 script end -->
-    
-</head>
-
-<body>
-    <!-- header start -->
-    <header id="title" th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
-        <div th:text="'콜 상태 현황(' + ${deptNm.get('Dept_Nm')} + ')'"></div>
-    </header>
-    <!-- header end -->
-
-    <!-- section start -->
-    <section th:class="${season}">
-        <div class="contents container-fluid" th:with="teamCallConst = ${T(com.vdc.board.common.enums.TeamCallConst).values()}">
-            <div class="row" th:each="row : ${#numbers.sequence(0,4,2)}">
-                <div class="col-xs-6 bundle" th:each="num : ${#numbers.sequence(0,1)}">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div th:class="${'subject w' + teamCallConst[row + num].getTitle().replace(' ', '').length()}"
-                                 th:text="${teamCallConst[row + num].getTitle()}"
-                                 th:style="${'background-color: ' + season.getColor() + ';'}"></div>
-                        </div>
-                        <div class="col-xs-7">
-                            <th:block th:switch="${teamCallConst[row + num].getKey()}">
-                                <div th:case="AnswerRate" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
-                                <div th:case="ServiceLevel" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
-                                <div th:case="*" class="value" th:id="${teamCallConst[row + num].getKey()}">0</div>
-                            </th:block>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="under_box">
-                <div class="under_title">
-                    <span id="dot">●</span> 개인별 실적 [응대호기준]<span id="last_words">기준</span>
-                </div>
-
-                <div class="row" th:each="row : ${#numbers.sequence(0,16,4)}">
-                    <div class="col-xs-3" th:each="num : ${#numbers.sequence(0,3)}">
-                        <div class="row value">
-                            <div class="col-xs-7 name">
-                                <span th:id="${'Emp_Nm_' + (row + num)}"></span>
-                            </div>
-                            <div class="col-xs-5 count">
-                                <span th:id="${'Handled_' + (row + num)}"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-    </section>
-    <!-- section end -->
-
-    <!-- footer start -->
-    <footer th:class="${season} + '-time'">
-        <div class="date">
-            <div class="col-xs-12 current_date"><span id="currentDate"></span></div>
-        </div>
-    </footer>
-    <!-- footer end -->
-</body>
+</th:block>
 
 </html>

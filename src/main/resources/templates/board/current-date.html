@@ -1,113 +1,147 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
 
-<head>
-    <!-- meta tag start -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width" initial-scale="1">
-    <!-- meta tag end -->
-
-    <!-- title -->
-    <title>Home</title>
-
-    <!-- 외부 css start -->
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">
-    <!-- 외부 css end -->
-
-    <!-- 내부 css -->
-    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">
+<th:block layout:fragment="css">
     <link rel="stylesheet" media="screen, print" th:href="@{/css/current-date.css}">
+</th:block>
 
-    <!-- 외부 script start -->
-    <script th:src="@{/js/jquery.min.js}"></script>
-    <script th:src="@{/js/bootstrap.min.js}"></script>
-    <!-- 외부 script end -->
-
-    <link th:replace="fragments/common-fragment.html :: context-path">
-
-    <script type="text/javascript" th:inline="javascript">
-        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';
-
-        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];
-        let timeout = '';
-
-        $(function() {
-
-            function getTime(){
-                const currentDate = new Date();
-
-                const yearStr = currentDate.getFullYear() + '년';
-                const monthStr = `${(currentDate.getMonth() + 1) < 10 ? `0${(currentDate.getMonth() + 1)}` : (currentDate.getMonth() + 1)}월`;
-                const dateStr = `${currentDate.getDate() < 10 ? `0${currentDate.getDate()}` : currentDate.getDate()}일`;
-                const dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';
-                const currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dayStr;
-
-                let hour = currentDate.getHours();
-                const minutes = currentDate.getMinutes();
-                const seconds = currentDate.getSeconds();
-
-                const ampm = hour >= 12 ? '오후' : '오전';
-                hour = hour % 12;
-                hour = hour ? hour : 12;
-
-                const timeStr = `${ampm} ${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;
-
-                $('#currentDate').text(currentDateStr);
-                $('#currentTime').text(timeStr);
-
-            }
-
-            function init() {
-                timeout = setInterval(getTime, 1000);
-            }
-
-            getTime();
-            init();
-
-            $(window).on('beforeunload', function() {
-                clearTimeout(timeout);
-            });
-
-        });
-    </script>
-</head>
-
-<body>
-    <!-- header start -->
-    <header th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">
-        <!--        <h1 id="title"></h1>-->
-    </header>
-    <!-- header end -->
-
-    <!-- section start -->
-    <section th:class="${season}">
-        <div class="contents first_page container-fluid" style="height: 100%">
-            <div class="date">
-                <div class="row r1">
-                    <div class="col-xs-12 current_date" id="currentDate"></div>
-                </div>
-
-                <div class="row r2">
-                    <div class="col-xs-12 current_time" id="currentTime"></div>
-                </div>
-
-                <h1 class="h1-clock"></h1>
+<!-- section start -->
+<section layout:fragment="content" th:class="${season}">
+    <div class="contents first_page container-fluid" style="height: 100%">
+        <div class="date">
+            <div class="row r1">
+                <div class="col-xs-12 current_date" id="currentDate"></div>
             </div>
 
-            <div class="row footer">
-                <img src="img/ci_type_jpg02.jpg" height="50px">
+            <div class="row r2">
+                <div class="col-xs-12 current_time" id="currentTime"></div>
             </div>
+
+            <h1 class="h1-clock"></h1>
         </div>
-    </section>
-    <!-- section end -->
 
-    <!-- footer start -->
-    <footer>
-<!--        <img src="img/ci_type_jpg02.jpg" height="50px">-->
-    </footer>
-    <!-- footer end -->
+        <div class="row footer">
+            <img src="img/ci_type_jpg02.jpg" height="50px">
+        </div>
+    </div>
+</section>
+<!-- section end -->
+
+<th:block layout:fragment="script">
+    <script type="text/javascript" th:inline="javascript">
+
+    </script>
+</th:block>
+
+<!--<head>-->
+<!--    &lt;!&ndash; meta tag start &ndash;&gt;-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+<!--    <meta name="viewport" content="width=device-width" initial-scale="1">-->
+<!--    &lt;!&ndash; meta tag end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; title &ndash;&gt;-->
+<!--    <title>Home</title>-->
+
+<!--    &lt;!&ndash; 외부 css start &ndash;&gt;-->
+<!--    <link rel="stylesheet" media="screen, print" th:href="@{/css/normalize.css}">-->
+<!--    <link rel="stylesheet" media="screen, print" th:href="@{/css/bootstrap.min.css}">-->
+<!--    &lt;!&ndash; 외부 css end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; 내부 css &ndash;&gt;-->
+<!--    <link rel="stylesheet" media="screen, print" th:href="@{/css/board.css}">-->
+<!--    <link rel="stylesheet" media="screen, print" th:href="@{/css/current-date.css}">-->
+
+<!--    &lt;!&ndash; 외부 script start &ndash;&gt;-->
+<!--    <script th:src="@{/js/jquery.min.js}"></script>-->
+<!--    <script th:src="@{/js/bootstrap.min.js}"></script>-->
+<!--    &lt;!&ndash; 외부 script end &ndash;&gt;-->
+
+<!--    <link th:replace="fragments/common-fragment.html :: context-path">-->
+
+<!--    <script type="text/javascript" th:inline="javascript">-->
+<!--        const CONTEXT_PATH = document.getElementById("contextPathHolder").getAttribute("data-contextPath") ? document.getElementById("contextPathHolder").getAttribute("data-contextPath") : '';-->
+
+<!--        const arrDayStr = ['일', '월', '화', '수', '목', '금', '토'];-->
+<!--        let timeout = '';-->
+
+<!--        $(function() {-->
+
+<!--            function getTime(){-->
+<!--                const currentDate = new Date();-->
+
+<!--                const yearStr = currentDate.getFullYear() + '년';-->
+<!--                const monthStr = `${(currentDate.getMonth() + 1) < 10 ? `0${(currentDate.getMonth() + 1)}` : (currentDate.getMonth() + 1)}월`;-->
+<!--                const dateStr = `${currentDate.getDate() < 10 ? `0${currentDate.getDate()}` : currentDate.getDate()}일`;-->
+<!--                const dayStr = '[' + arrDayStr[currentDate.getDay()] + ']';-->
+<!--                const currentDateStr = yearStr + ' ' + monthStr + ' ' + dateStr + ' ' + dayStr;-->
+
+<!--                let hour = currentDate.getHours();-->
+<!--                const minutes = currentDate.getMinutes();-->
+<!--                const seconds = currentDate.getSeconds();-->
+
+<!--                const ampm = hour >= 12 ? '오후' : '오전';-->
+<!--                hour = hour % 12;-->
+<!--                hour = hour ? hour : 12;-->
+
+<!--                const timeStr = `${ampm} ${hour<10 ? `0${hour}`:hour}:${minutes<10 ? `0${minutes}`:minutes}:${seconds<10 ? `0${seconds}`:seconds}`;-->
+
+<!--                $('#currentDate').text(currentDateStr);-->
+<!--                $('#currentTime').text(timeStr);-->
+
+<!--            }-->
+
+<!--            function init() {-->
+<!--                timeout = setInterval(getTime, 1000);-->
+<!--            }-->
+
+<!--            getTime();-->
+<!--            init();-->
+
+<!--            $(window).on('beforeunload', function() {-->
+<!--                clearTimeout(timeout);-->
+<!--            });-->
+
+<!--        });-->
+<!--    </script>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--    &lt;!&ndash; header start &ndash;&gt;-->
+<!--    <header th:style="'background-image: url(' + @{/img/} + ${season} + '.jpg);'">-->
+<!--        &lt;!&ndash;        <h1 id="title"></h1>&ndash;&gt;-->
+<!--    </header>-->
+<!--    &lt;!&ndash; header end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; section start &ndash;&gt;-->
+<!--    <section th:class="${season}">-->
+<!--        <div class="contents first_page container-fluid" style="height: 100%">-->
+<!--            <div class="date">-->
+<!--                <div class="row r1">-->
+<!--                    <div class="col-xs-12 current_date" id="currentDate"></div>-->
+<!--                </div>-->
+
+<!--                <div class="row r2">-->
+<!--                    <div class="col-xs-12 current_time" id="currentTime"></div>-->
+<!--                </div>-->
+
+<!--                <h1 class="h1-clock"></h1>-->
+<!--            </div>-->
+
+<!--            <div class="row footer">-->
+<!--                <img src="img/ci_type_jpg02.jpg" height="50px">-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+<!--    &lt;!&ndash; section end &ndash;&gt;-->
+
+<!--    &lt;!&ndash; footer start &ndash;&gt;-->
+<!--    <footer>-->
+<!--&lt;!&ndash;        <img src="img/ci_type_jpg02.jpg" height="50px">&ndash;&gt;-->
+<!--    </footer>-->
+<!--    &lt;!&ndash; footer end &ndash;&gt;-->
 
 </body>
 

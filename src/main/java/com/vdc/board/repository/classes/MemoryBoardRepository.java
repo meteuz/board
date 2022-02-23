@@ -21,15 +21,15 @@ public class MemoryBoardRepository implements BoardRepository {
 
     private String[] labels = new String[] {"Received", "Answered", "Abandoned", "AnswerRate", "ServiceLevel"};
 
-    private String[] nameArray = new String[] {"고구정", "이지연", "김미현A", "이서하", "권태정", "이수언", "이정현", "이은옥"};
-    private Integer[] countArray = new Integer[] {0, 12, 54, 38, 30, 49, 33, 25};
+    private String[] nameArray = new String[] {"고구정", "이지연", "김미현A", "이서하", "권태정", "이수언", "이정현", "이은옥", "홍길동", "이순신"};
+    private Integer[] countArray = new Integer[] {0, 12, 54, 38, 30, 49, 33, 25, 0, 0};
 
     private Map<String, Object> teamCounselorInfo;
     private Map<String, Object> teamCounselorInfo2;
     private List<Map<String, Object>> individualStateList;
 
-    private String[] stateArray = new String[] {"INIT", "MEAL", "REST", "EDUCATION", "WORK", "CALLING", "OFF", "HANDLING"};
-    private String[] timeArray = new String[] {"0:00:00", "00:00:49", "0:00:00", "0:00:00", "00:02:47", "0:00:00", "00:01:09", "00:04:59"};
+    private String[] stateArray = new String[] {"INIT", "MEAL", "REST", "EDUCATION", "WORK", "CALLING", "OFF", "HANDLING", "IDLE", "ETC"};
+    private String[] timeArray = new String[] {"0:00:00", "00:00:49", "0:00:00", "0:00:00", "00:02:47", "0:00:00", "00:01:09", "00:04:59", "00:00:00", "00:00:00"};
 
 
     public MemoryBoardRepository() {

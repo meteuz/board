@@ -55,23 +55,107 @@ section {
     font-stretch: ultra-condensed;
 }
 
-@media (min-width: 1280px) {
+@media screen and (max-width: 1024px) {
     header {
-        height: 20vh;
-        font-size: 6.5rem;
+        height: 18vh;
+        font-size: 7.0rem;
     }
 
     section {
-        height: 70vh;
+        height: 72vh;
     }
 
     .subject {
-        height: 5.5rem;
+        height: 5.2rem;
+        font-size: 2.8rem;
+    }
+
+    .value {
+        height: 5.2rem;
+        font-size: 3.8rem;
+    }
+
+    .name {
+        font-size: 2.2rem;
+    }
+    .count {
+        font-size: 2.2rem;
+    }
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1152px) {
+    header {
+        height: 18vh;
+        font-size: 7.0rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 6.0rem;
         font-size: 3.2rem;
     }
 
     .value {
-        height: 5.5rem;
+        height: 6.0rem;
         font-size: 4.5rem;
     }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
 }
+
+@media screen and (min-width: 1280px) {
+    header {
+        height: 18vh;
+        font-size: 7.0rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 5.0rem;
+        font-size: 3.5rem;
+    }
+
+    .value {
+        height: 5.0rem;
+        font-size: 4.5rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+}
+
+/*@media (min-width: 1280px) {*/
+/*    header {*/
+/*        height: 20vh;*/
+/*        font-size: 6.5rem;*/
+/*    }*/
+
+/*    section {*/
+/*        height: 70vh;*/
+/*    }*/
+
+/*    .subject {*/
+/*        height: 5.5rem;*/
+/*        font-size: 3.2rem;*/
+/*    }*/
+
+/*    .value {*/
+/*        height: 5.5rem;*/
+/*        font-size: 4.5rem;*/
+/*    }*/
+/*}*/

@@ -20,7 +20,8 @@
                     </div>
                     <div class="col-xs-7">
                         <th:block th:switch="${teamCallConst[row + num].getKey()}">
-                            <div th:case="AnswerRate" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="AnswerRate" class="value threshold" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
+                            <div th:case="WaitCalls" class="value threshold" th:id="${teamCallConst[row + num].getKey()}">0</div>
                             <div th:case="ServiceLevel" class="value" th:id="${teamCallConst[row + num].getKey()}">0.00%</div>
                             <div th:case="*" class="value" th:id="${teamCallConst[row + num].getKey()}">0</div>
                         </th:block>
@@ -75,7 +76,7 @@
                     cache: false,
                     dataType: 'json',
                     success: function(data) {
-                        console.log(data);
+                        // console.log(data);
 
                         for (const key in data.data1) {
                             // console.log(key + ':' + data.data1[key]);
@@ -85,16 +86,26 @@
                                 $('#' + key).removeClass('threshold');
 
                                 if (key == 'AnswerRate') {
-                                    const ar_value = data.data1[key].split('.');
-                                    if (ar > Number(ar_value[0])) {
+                                    let ar_value;
+                                    if (data.data1[key].indexOf('.') > -1) {
+                                        ar_value =data.data1[key].split('.')[0];
+                                    } else {
+                                        ar_value = data.data1[key].replace('%', '');
+                                    }
+
+                                    if (ar > Number(ar_value)) {
                                         $('#' + key).addClass('threshold');
                                     }
-                                    console.log(`ar = ${ar} | ${data.data1[key]}`);
+                                    // const ar_value = data.data1[key].split('.');
+                                    // if (ar > Number(ar_value[0])) {
+                                    //     $('#' + key).addClass('threshold');
+                                    // }
+                                    // console.log(`ar = ${ar} | ${data.data1[key]}`);
                                 } else {
                                     if (wc < Number(data.data1[key])) {
                                         $('#' + key).addClass('threshold');
                                     }
-                                    console.log(`wc = ${wc} | ${data.data1[key]}`);
+                                    // console.log(`wc = ${wc} | ${data.data1[key]}`);
                                 }
                             }
 

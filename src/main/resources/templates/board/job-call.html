@@ -32,7 +32,7 @@
             <div class="col-xs-2"
                  th:each="value : ${jobCallConst}">
                 <th:block th:switch="${value.getKey()}">
-                    <div th:case="AnswerRate" class="value"
+                    <div th:case="AnswerRate" class="value threshold"
                          th:id="${value.getKey() + '_' + jobCallRecordConstStat.index}">0.00%
                     </div>
                     <div th:case="ServiceLevel" class="value"
@@ -71,26 +71,33 @@
                     cache: false,
                     dataType: 'json',
                     success: function (data) {
-                        console.log(data);
+                        // console.log(data);
                         let num = 0;
                         data.data.forEach(element => {
                             for (const elementKey in element) {
-                                console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                                // console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                                num = element['Dash_Div'];
 
                                 // AnswerRate:36.1% | WaitCalls:27
                                 if (elementKey == 'AnswerRate') {
                                     $('#' + elementKey + '_' + num).removeClass('threshold');
 
-                                    const ar_value = element[elementKey].split('.');
-                                    if (ar > Number(ar_value[0])) {
+                                    let ar_value;
+                                    if (element[elementKey].indexOf('.') > -1) {
+                                        ar_value = element[elementKey].split('.')[0];
+                                    } else {
+                                        ar_value = element[elementKey].replace('%', '');
+                                    }
+
+                                    if (ar > Number(ar_value)) {
                                         $('#' + elementKey + '_' + num).addClass('threshold');
                                     }
-                                    console.log(`ar = ${ar} | ${element[elementKey]}`);
+                                    // console.log(`ar = ${ar} | ${element[elementKey]}`);
                                 }
 
                                 $('#' + elementKey + '_' + num).text(element[elementKey]);
                             }
-                            num++;
+                            // num++;
                         });
                     },
                     timeout: 3000,

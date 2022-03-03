@@ -16,7 +16,7 @@ import java.util.Map;
 @Controller
 public class BoardController {
 
-    private static final boolean IS_TEST = true;
+    private static final boolean IS_TEST = false;
 
     private final BoardService boardService;
 

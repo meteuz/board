@@ -20,8 +20,8 @@
                 </div>
                 <div class="col-xs-3">
                     <th:block th:switch="${totalCallConst[row + num].getKey()}">
-                        <div th:case="AnswerRate" class="value" th:id="${totalCallConst[row + num].getKey()}">0.00%
-                        </div>
+                        <div th:case="AnswerRate" class="value threshold" th:id="${totalCallConst[row + num].getKey()}">0.00%</div>
+                        <div th:case="WaitCalls" class="value threshold" th:id="${totalCallConst[row + num].getKey()}">0</div>
                         <div th:case="AverageAnsweredWaitTime" class="value"
                              th:id="${totalCallConst[row + num].getKey()}">00:00:00
                         </div>
@@ -65,16 +65,26 @@
                                 $('#' + dataKey).removeClass('threshold');
 
                                 if (dataKey == 'AnswerRate') {
-                                    const ar_value = data.data[dataKey].split('.');
-                                    if (ar > Number(ar_value[0])) {
+                                    let ar_value;
+                                    if (data.data[dataKey].indexOf('.') > -1) {
+                                        ar_value =data.data[dataKey].split('.')[0];
+                                    } else {
+                                        ar_value = data.data[dataKey].replace('%', '');
+                                    }
+
+                                    if (ar > Number(ar_value)) {
                                         $('#' + dataKey).addClass('threshold');
                                     }
-                                    console.log(`ar = ${ar} | ${data.data[dataKey]}`);
+                                    // const ar_value = data.data[dataKey].split('.');
+                                    // if (ar > Number(ar_value[0])) {
+                                    //     $('#' + dataKey).addClass('threshold');
+                                    // }
+                                    // console.log(`ar = ${ar} | ${data.data[dataKey]}`);
                                 } else {
                                     if (wc < Number(data.data[dataKey])) {
                                         $('#' + dataKey).addClass('threshold');
                                     }
-                                    console.log(`wc = ${wc} | ${data.data[dataKey]}`);
+                                    // console.log(`wc = ${wc} | ${data.data[dataKey]}`);
                                 }
                             }
 

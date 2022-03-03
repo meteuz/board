@@ -48,31 +48,39 @@ section {
     color: coral;
 }
 .icon_rest {
-    color: green;
+    /*color: green;*/
+    color: coral;
 }
 .icon_education {
-    color: blueviolet;
+    /*color: blueviolet;*/
+    color: coral;
 }
 .icon_init {
-    color: brown;
+    /*color: brown;*/
+    color: coral;
 }
 .icon_work {
-    color: blue;
+    /*color: blue;*/
+    color: coral;
 }
 .icon_calling {
-    color: orange;
+    /*color: orange;*/
+    color: blue;
 }
 .icon_handling {
-    color: deeppink;
+    /*color: deeppink;*/
+    color: darkgreen;
 }
 .icon_off {
     color: gray;
 }
 .icon_idle {
-    color: darkkhaki;
+    /*color: darkkhaki;*/
+    color: blueviolet;
 }
 .icon_etc {
-    color: bisque;
+    /*color: bisque;*/
+    color: darkkhaki;
 }
 
 .name {
@@ -89,19 +97,23 @@ section {
 }
 
 .sub1 {
-    background-color: mediumvioletred;
+    background-color: #ce0262;
+    /*background-color: blueviolet;*/
 }
 
 .sub2 {
     background-color: blueviolet;
+    /*background-color: darkkhaki;*/
 }
 
 .sub3 {
     background-color: blue;
+    /*background-color: orange;*/
 }
 
 .sub4 {
     background-color: darkgreen;
+    /*background-color: deeppink;*/
 }
 
 .sub5 {

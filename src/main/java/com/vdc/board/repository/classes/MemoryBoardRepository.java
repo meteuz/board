@@ -19,7 +19,7 @@ public class MemoryBoardRepository implements BoardRepository {
     private Map<String, Object> teamCallInfo;
     private List<Map<String, Object>> individualPerformanceList;
 
-    private String[] labels = new String[] {"Received", "Answered", "Abandoned", "AnswerRate", "ServiceLevel"};
+    private String[] labels = new String[] {"Dash_Div", "Received", "Answered", "Abandoned", "AnswerRate", "ServiceLevel"};
 
     private String[] nameArray = new String[] {"고구정", "이지연", "김미현A", "이서하", "권태정", "이수언", "이정현", "이은옥", "홍길동", "이순신"};
     private Integer[] countArray = new Integer[] {0, 12, 54, 38, 30, 49, 33, 25, 0, 0};
@@ -102,27 +102,27 @@ public class MemoryBoardRepository implements BoardRepository {
         jobCallInfo = new HashMap<>();
         jobCallInfoList = new ArrayList<>();
 
-        HashMap<String, Object> total = setMap(new HashMap<>(), new String[]{"2,916", "1,051", "1,856", "36.0%", "6.2%"});
+        HashMap<String, Object> total = setMap(new HashMap<>(), new String[]{"0", "2,916", "1,051", "1,856", "36.0%", "6.2%"});
         jobCallInfo.put("total", total);
         jobCallInfoList.add(total);
 
-        HashMap<String, Object> work = setMap(new HashMap<>(), new String[]{"620", "207", "411", "33.4%", "0.6%"});
+        HashMap<String, Object> work = setMap(new HashMap<>(), new String[]{"1", "620", "207", "411", "33%", "0.6%"});
         jobCallInfo.put("work", work);
         jobCallInfoList.add(work);
 
-        HashMap<String, Object> insurance = setMap(new HashMap<>(), new String[]{"50", "33", "17", "66.0%", "0.0"});
-        jobCallInfo.put("insurance", insurance);
-        jobCallInfoList.add(insurance);
+//        HashMap<String, Object> insurance = setMap(new HashMap<>(), new String[]{"2", "50", "33", "17", "66.0%", "0.0%"});
+//        jobCallInfo.put("insurance", insurance);
+//        jobCallInfoList.add(insurance);
 
-        HashMap<String, Object> skill = setMap(new HashMap<>(), new String[]{"504", "340", "159", "67.5%", "3.4%"});
+        HashMap<String, Object> skill = setMap(new HashMap<>(), new String[]{"3", "504", "340", "159", "67.5%", "3.4%"});
         jobCallInfo.put("skill", skill);
         jobCallInfoList.add(skill);
 
-        HashMap<String, Object> foreigner = setMap(new HashMap<>(), new String[]{"277", "234", "42", "84.5%", "34.3%"});
+        HashMap<String, Object> foreigner = setMap(new HashMap<>(), new String[]{"4", "277", "234", "42", "84.5%", "34.3%"});
         jobCallInfo.put("foreigner", foreigner);
         jobCallInfoList.add(foreigner);
 
-        HashMap<String, Object> etc = setMap(new HashMap<>(), new String[]{"193", "155", "37", "80.3%", "28.5%"});
+        HashMap<String, Object> etc = setMap(new HashMap<>(), new String[]{"5", "193", "155", "37", "80.3%", "28.5%"});
         jobCallInfo.put("etc", etc);
         jobCallInfoList.add(etc);
     }
@@ -138,10 +138,10 @@ public class MemoryBoardRepository implements BoardRepository {
         teamCallInfo = new HashMap<>();
 
         teamCallInfo.put("Received", "277");
-        teamCallInfo.put("WaitCalls", "0");
+        teamCallInfo.put("WaitCalls", "50");
         teamCallInfo.put("Answered", "233");
         teamCallInfo.put("AverageAnsweredWaitTime", "0:01:34");
-        teamCallInfo.put("AnswerRate", "84.1%");
+        teamCallInfo.put("AnswerRate", "34.1%");
         teamCallInfo.put("ServiceLevel", "34.3%");
     }
 
@@ -161,8 +161,8 @@ public class MemoryBoardRepository implements BoardRepository {
 
         teamCounselorInfo.put("Received", "277");
         teamCounselorInfo.put("Answered", "234");
-        teamCounselorInfo.put("AnswerRate", "84.5%");
-        teamCounselorInfo.put("WaitCalls", "0");
+        teamCounselorInfo.put("AnswerRate", "34.5%");
+        teamCounselorInfo.put("WaitCalls", "30");
         teamCounselorInfo.put("AverageAnsweredWaitTime", "0:01:34");
         teamCounselorInfo.put("ServiceLevel", "34.3%");
     }
@@ -183,7 +183,7 @@ public class MemoryBoardRepository implements BoardRepository {
         IntStream.range(0, nameArray.length).forEach(i -> {
             HashMap<String, Object> individualMap = new HashMap<>();
             individualMap.put("Emp_Nm", nameArray[i]);
-            individualMap.put("CurrentActTime", timeArray[i]);
+            individualMap.put("TimeInState", timeArray[i]);
             individualMap.put("State", stateArray[i]);
             individualStateList.add(individualMap);
         });

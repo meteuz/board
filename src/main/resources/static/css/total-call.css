@@ -79,7 +79,7 @@ section {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1270px) {
     header {
         height: 18vh;
         font-size: 7.0rem;
@@ -107,30 +107,64 @@ section {
     }
 }
 
-/*@media (min-width: 1280px) {*/
-/*    header {*/
-/*        height: 20vh;*/
-/*        font-size: 75px;*/
-/*    }*/
+@media screen and (min-width: 1590px) {
+    header {
+        height: 18vh;
+        font-size: 8.5rem;
+    }
 
-/*    section {*/
-/*        height: 70vh;*/
-/*    }*/
+    section {
+        height: 72vh;
+    }
 
-/*    .subject {*/
-/*        display: flex;*/
-/*        align-items: center;*/
-/*        justify-content: center;*/
-/*        height: 9rem;*/
-/*        font-size: 5rem;*/
-/*    }*/
+    .subject {
+        height: 12.0rem;
+        font-size: 7.0rem;
+    }
 
-/*    .value {*/
-/*        display: flex;*/
-/*        padding: 0px;*/
-/*        height: 9rem;*/
-/*        font-size: 5.5rem;*/
-/*        align-items: center;*/
-/*        justify-content: center;*/
-/*    }*/
-/*}*/
+    .value {
+        height: 12.0rem;
+        font-size: 9.0rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+    .current_date {
+        font-size: 5.0rem;
+    }
+}
+
+@media screen and (min-width: 1910px) {
+    header {
+        height: 18vh;
+        font-size: 9.5rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 13.0rem;
+        font-size: 7.5rem;
+    }
+
+    .value {
+        height: 13.0rem;
+        font-size: 9.5rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+    .count {
+        font-size: 2.5rem;
+    }
+    .current_date {
+        font-size: 5.5rem;
+    }
+}

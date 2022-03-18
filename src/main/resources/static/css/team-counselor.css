@@ -176,7 +176,7 @@ section {
     }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1270px) {
     header {
         height: 18vh;
         font-size: 7.0rem;
@@ -203,3 +203,102 @@ section {
         font-size: 2.5rem;
     }
 }
+
+@media screen and (min-width: 1590px) {
+    header {
+        height: 18vh;
+        font-size: 9.5rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 7.0rem;
+        font-size: 4.5rem;
+    }
+
+    .value {
+        height: 7.0rem;
+        font-size: 5.5rem;
+    }
+
+    .img {
+        font-size: 2.0rem;
+    }
+    .name {
+        font-size: 3.5rem;
+    }
+    .count {
+        font-size: 3.5rem;
+    }
+    .current_date {
+        font-size: 5.5rem;
+    }
+}
+
+@media screen and (min-width: 1910px) {
+    header {
+        height: 18vh;
+        font-size: 9.5rem;
+    }
+
+    section {
+        height: 72vh;
+    }
+
+    .subject {
+        height: 8.0rem;
+        font-size: 5.5rem;
+    }
+
+    .value {
+        height: 8.0rem;
+        font-size: 6.5rem;
+    }
+
+    .img {
+        font-size: 2.5rem;
+    }
+    .name {
+        font-size: 4.5rem;
+    }
+    .count {
+        font-size: 4.5rem;
+    }
+    .current_date {
+        font-size: 5.5rem;
+    }
+}
+
+/*@media screen and (min-width: 1590px) and (max-width: 1679px) {*/
+/*    header {*/
+/*        height: 18vh;*/
+/*        font-size: 8.5rem;*/
+/*    }*/
+
+/*    section {*/
+/*        height: 72vh;*/
+/*    }*/
+
+/*    .subject {*/
+/*        height: 6.5rem;*/
+/*        font-size: 4.5rem;*/
+/*    }*/
+
+/*    .value {*/
+/*        height: 6.5rem;*/
+/*        font-size: 5.5rem;*/
+/*    }*/
+
+/*    .name {*/
+/*        font-size: 3.5rem;*/
+/*    }*/
+/*    .count {*/
+/*        font-size: 3.5rem;*/
+/*    }*/
+/*    .current_date {*/
+/*        font-size: 4.5rem;*/
+/*    }*/
+/*}*/

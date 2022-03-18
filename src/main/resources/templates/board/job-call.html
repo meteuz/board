@@ -71,34 +71,46 @@
                     cache: false,
                     dataType: 'json',
                     success: function (data) {
-                        // console.log(data);
-                        let num = 0;
-                        data.data.forEach(element => {
-                            for (const elementKey in element) {
-                                // console.log(elementKey + '_' + num + ':' + element[elementKey]);
-                                num = element['Dash_Div'];
-
-                                // AnswerRate:36.1% | WaitCalls:27
-                                if (elementKey == 'AnswerRate') {
-                                    $('#' + elementKey + '_' + num).removeClass('threshold');
-
-                                    let ar_value;
-                                    if (element[elementKey].indexOf('.') > -1) {
-                                        ar_value = element[elementKey].split('.')[0];
-                                    } else {
-                                        ar_value = element[elementKey].replace('%', '');
-                                    }
-
-                                    if (ar > Number(ar_value)) {
-                                        $('#' + elementKey + '_' + num).addClass('threshold');
-                                    }
-                                    // console.log(`ar = ${ar} | ${element[elementKey]}`);
-                                }
-
-                                $('#' + elementKey + '_' + num).text(element[elementKey]);
+                        console.log(data);
+                        if (data.data.length == 0) {
+                            console.log('data length is 0');
+                            for (let i = 0; i < 6; i++) {
+                                $('#Received_' + i).text('0');
+                                $('#Answered_' + i).text('0');
+                                $('#Abandoned_' + i).text('0');
+                                $('#AnswerRate_' + i).text('0.00%');
+                                $('#AnswerRate_' + i).addClass('threshold');
+                                $('#ServiceLevel_' + i).text('0.00%');
                             }
-                            // num++;
-                        });
+                        } else {
+                            let num = 0;
+                            data.data.forEach(element => {
+                                for (const elementKey in element) {
+                                    // console.log(elementKey + '_' + num + ':' + element[elementKey]);
+                                    num = element['Dash_Div'];
+
+                                    // AnswerRate:36.1% | WaitCalls:27
+                                    if (elementKey == 'AnswerRate') {
+                                        $('#' + elementKey + '_' + num).removeClass('threshold');
+
+                                        let ar_value;
+                                        if (element[elementKey].indexOf('.') > -1) {
+                                            ar_value = element[elementKey].split('.')[0];
+                                        } else {
+                                            ar_value = element[elementKey].replace('%', '');
+                                        }
+
+                                        if (ar > Number(ar_value)) {
+                                            $('#' + elementKey + '_' + num).addClass('threshold');
+                                        }
+                                        // console.log(`ar = ${ar} | ${element[elementKey]}`);
+                                    }
+
+                                    $('#' + elementKey + '_' + num).text(element[elementKey]);
+                                }
+                                // num++;
+                            });
+                        }
                     },
                     timeout: 3000,
                     complete: timeout = setTimeout(function () {

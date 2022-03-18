@@ -57,15 +57,16 @@
                     cache: false,
                     dataType: 'json',
                     success: function (data) {
+                        console.log(data);
                         for (const dataKey in data.data) {
-                            // console.log(dataKey + ':' + data.data[dataKey]);
+                            console.log(dataKey + ':' + data.data[dataKey]);
 
                             // AnswerRate:36.1% | WaitCalls:27
                             if (dataKey == 'WaitCalls' || dataKey == 'AnswerRate') {
                                 $('#' + dataKey).removeClass('threshold');
 
                                 if (dataKey == 'AnswerRate') {
-                                    let ar_value;
+                                    let ar_value = 0;
                                     if (data.data[dataKey].indexOf('.') > -1) {
                                         ar_value =data.data[dataKey].split('.')[0];
                                     } else {
@@ -90,6 +91,23 @@
 
                             $('#' + dataKey).text(data.data[dataKey]);
 
+                        }
+
+                        if (data.data.Received == '' || data.data.Received == null) {
+                            $('#Received').text('0');
+                        }
+
+                        if (data.data.Answered == '' || data.data.Answered == null) {
+                            $('#Answered').text('0');
+                        }
+
+                        if (data.data.Abandoned == '' || data.data.Abandoned == null) {
+                            $('#Abandoned').text('0');
+                        }
+
+                        if (data.data.AnswerRate == '' || data.data.AnswerRate == null) {
+                            $('#AnswerRate').text('0.00%');
+                            $('#AnswerRate').addClass('threshold');
                         }
                     },
                     timeout: 3000,

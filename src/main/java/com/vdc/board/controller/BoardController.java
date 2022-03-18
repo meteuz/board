@@ -39,7 +39,8 @@ public class BoardController {
     public String totalCall(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
-        model.addAttribute("dept", param.get("dept"));
+//        model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("dept", "1");
         model.addAttribute("wc", param.get("wc"));
         model.addAttribute("ar", param.get("ar"));
         model.addAttribute("title", Title.values()[0].getTitleStr());
@@ -80,7 +81,8 @@ public class BoardController {
     public String jobCall(@RequestParam Map<String, Object> param, Model model) {
 
         model.addAttribute("season", getSeason(param.get("season")));
-        model.addAttribute("dept", param.get("dept"));
+//        model.addAttribute("dept", param.get("dept"));
+        model.addAttribute("dept", "1");
         model.addAttribute("wc", param.get("wc"));
         model.addAttribute("ar", param.get("ar"));
         model.addAttribute("title", Title.values()[1].getTitleStr());
@@ -133,8 +135,11 @@ public class BoardController {
 
             if (queueRealTime != null) {
                 if (queueCumulativeRate != null) {
+                    queueCumulativeRate.remove("ServiceLevel");
                     queueRealTime.putAll(queueCumulativeRate);
                 }
+            } else {
+                queueRealTime = queueCumulativeRate;
             }
 
             userRealTime = boardService.getUserRealTime(param);
@@ -183,8 +188,11 @@ public class BoardController {
 
             if (queueRealTime != null) {
                 if (queueCumulativeRate != null) {
+                    queueCumulativeRate.remove("ServiceLevel");
                     queueRealTime.putAll(queueCumulativeRate);
                 }
+            } else {
+                queueRealTime = queueCumulativeRate;
             }
 
             agentStatus = boardService.getAgentStatus(param);

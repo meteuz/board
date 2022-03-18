@@ -76,7 +76,11 @@
                     cache: false,
                     dataType: 'json',
                     success: function(data) {
-                        // console.log(data);
+                        console.log(data);
+
+                        // if (data.data.length == 0) {
+                        //     console.log('data length is 0');
+                        // }
 
                         for (const key in data.data1) {
                             // console.log(key + ':' + data.data1[key]);
@@ -120,6 +124,23 @@
                             }
                             num++;
                         });
+
+                        if (data.data1.Received == '' || data.data1.Received == null) {
+                            $('#Received').text('0');
+                        }
+
+                        if (data.data1.Answered == '' || data.data1.Answered == null) {
+                            $('#Answered').text('0');
+                        }
+
+                        // if (data.data1.Abandoned == '' || data.data1.Abandoned == null) {
+                        //     $('#Abandoned').text('0');
+                        // }
+
+                        if (data.data1.AnswerRate == '' || data.data1.AnswerRate == null) {
+                            $('#AnswerRate').text('0.00%');
+                            $('#AnswerRate').addClass('threshold');
+                        }
                     },
                     timeout: 3000,
                     complete: timeout = setTimeout(function() {

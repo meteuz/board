@@ -51,10 +51,10 @@
             <fileNamePattern>${LOG_PATH}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- 파일당 최고 용량 kb, mb, gb -->
-                <maxFileSize>10MB</maxFileSize>
+                <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거-->
-            <maxHistory>30</maxHistory>
+            <maxHistory>10</maxHistory>
             <!--<MinIndex>1</MinIndex> <MaxIndex>10</MaxIndex>-->
         </rollingPolicy>
     </appender>
@@ -76,10 +76,10 @@
             <fileNamePattern>${LOG_PATH}/${ERR_LOG_FILE_NAME}.%d{yyyy-MM-dd}_%i.log</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <!-- 파일당 최고 용량 kb, mb, gb -->
-                <maxFileSize>10MB</maxFileSize>
+                <maxFileSize>20MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
             <!-- 일자별 로그파일 최대 보관주기(~일), 해당 설정일 이상된 파일은 자동으로 제거-->
-            <maxHistory>60</maxHistory>
+            <maxHistory>20</maxHistory>
         </rollingPolicy>
     </appender>
 
@@ -111,6 +111,6 @@
     <!-- SQL 문만을 로그로 남기며, PreparedStatement 일 경우 관련된 argument 값으로 대체된 SQL 문이 보여진다. -->
     <logger name="jdbc.sqlonly" level="DEBUG"/>
     <!-- SQL 결과 조회된 데이터의 table 을 로그로 남긴다. -->
-    <logger name="jdbc.resultsettable" level="OFF"/>
+    <logger name="jdbc.resultsettable" level="DEBUG"/>
 
 </configuration>

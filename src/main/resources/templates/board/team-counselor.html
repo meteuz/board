@@ -225,6 +225,16 @@
                             num++;
                         });
 
+                        if (num < 19) {
+                            for (let i = num; i < 20; i++) {
+                                $('#Emp_Nm_' + i).text('');
+                                $('#TimeInState_' + i).text('');
+
+                                $('#color_' + i).removeClass();
+                                $('#icon_' + i).removeClass();
+                            }
+                        }
+
                         if (data.data1.Received == '' || data.data1.Received == null) {
                             $('#Received').text('0');
                         }

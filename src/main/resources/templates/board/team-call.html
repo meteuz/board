@@ -125,6 +125,13 @@
                             num++;
                         });
 
+                        if (num < 19) {
+                            for (let i = num; i < 20; i++) {
+                                $('#Emp_Nm_' + i).text('');
+                                $('#Handled_' + i).text('');
+                            }
+                        }
+
                         if (data.data1.Received == '' || data.data1.Received == null) {
                             $('#Received').text('0');
                         }

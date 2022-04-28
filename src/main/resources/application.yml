@@ -1,8 +1,32 @@
 server:
   port: 8080
 
+spring:
+  profiles:
+    active: prod
+
+---
+# local database 설정
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    hikari:
+      driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+      jdbc-url: jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      username: ims
+      password: vdc7200#
+      #jdbc:log4jdbc:mysql://192.168.19.61:3306/ims?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      #jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
+      #connection-test-query: SELECT NOW()
+
+---
 # database 설정
 spring:
+  config:
+    activate:
+      on-profile: prod
   datasource:
     hikari:
       driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
@@ -12,6 +36,7 @@ spring:
       #jdbc:log4jdbc:mysql://192.168.19.61:3306/ims?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
       #jdbc:log4jdbc:mysql://help.vodacom.co.kr:3306/ims_keis?characterEncoding=UTF-8&serverTimezone=UTC&zeroDateTimeBehavior=convertToNull
       #connection-test-query: SELECT NOW()
+
 ---
 # devtools
 spring:
@@ -32,7 +57,7 @@ spring:
 logging:
   config:
     level: INFO
-    path: opt/tomcat/latest/logs #opt/tomcat/latest/logs
+    path: opt/tomcat/latest/logs
     filename: board
     errfilename: error_board
 
